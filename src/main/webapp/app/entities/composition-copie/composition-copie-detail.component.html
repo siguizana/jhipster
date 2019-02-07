@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compositionCopie">
+            <h2><span jhiTranslate="sigecApp.compositionCopie.detail.title">Composition Copie</span> {{compositionCopie.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.compositionCopie.note">Note</span></dt>
+                <dd>
+                    <span>{{compositionCopie.note}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.compositionCopie.dateComposition">Date Composition</span></dt>
+                <dd>
+                    <span>{{compositionCopie.dateComposition}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.compositionCopie.numeroAnonymat">Numero Anonymat</span></dt>
+                <dd>
+                    <span>{{compositionCopie.numeroAnonymat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.compositionCopie.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="compositionCopie.inscriptionId">
+                        <a [routerLink]="['/inscription', compositionCopie.inscriptionId, 'view']">{{compositionCopie.inscriptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.compositionCopie.epreuveSpecialiteOption">Epreuve Specialite Option</span></dt>
+                <dd>
+                    <div *ngIf="compositionCopie.epreuveSpecialiteOptionId">
+                        <a [routerLink]="['/epreuve-specialite-option', compositionCopie.epreuveSpecialiteOptionId, 'view']">{{compositionCopie.epreuveSpecialiteOptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.compositionCopie.etapeExamen">Etape Examen</span></dt>
+                <dd>
+                    <div *ngIf="compositionCopie.etapeExamenId">
+                        <a [routerLink]="['/etape-examen', compositionCopie.etapeExamenId, 'view']">{{compositionCopie.etapeExamenId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/composition-copie', compositionCopie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

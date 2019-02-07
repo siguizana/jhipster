@@ -1,0 +1,39 @@
+{
+    "name": "CentreCompositioJury",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "salleComposition",
+            "otherEntityName": "salleComposition",
+            "otherEntityRelationshipName": "centreCompositioJury"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "centreCompositioJury"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "centreComposition",
+            "otherEntityName": "centreComposition",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "jury",
+            "otherEntityName": "jury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012312",
+    "entityTableName": "centre_compositio_jury",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

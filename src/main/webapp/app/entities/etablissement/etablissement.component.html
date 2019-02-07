@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.etablissement.home.title">Etablissements</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-etablissement" [routerLink]="['/etablissement/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.etablissement.home.createLabel">
+            Create new Etablissement
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="etablissements">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeEtablissement"><span jhiTranslate="sigecApp.etablissement.codeEtablissement">Code Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleEtablissement"><span jhiTranslate="sigecApp.etablissement.libelleEtablissement">Libelle Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomResponsableEtablissement"><span jhiTranslate="sigecApp.etablissement.nomResponsableEtablissement">Nom Responsable Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenomResponsableEtablissement"><span jhiTranslate="sigecApp.etablissement.prenomResponsableEtablissement">Prenom Responsable Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactactEtablissement"><span jhiTranslate="sigecApp.etablissement.contactactEtablissement">Contactact Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cebId"><span jhiTranslate="sigecApp.etablissement.ceb">Ceb</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeEtablissementId"><span jhiTranslate="sigecApp.etablissement.typeEtablissement">Type Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="villageSecteurId"><span jhiTranslate="sigecApp.etablissement.villageSecteur">Village Secteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="centreCompositionId"><span jhiTranslate="sigecApp.etablissement.centreComposition">Centre Composition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let etablissement of etablissements ;trackBy: trackId">
+                <td><a [routerLink]="['/etablissement', etablissement.id, 'view' ]">{{etablissement.id}}</a></td>
+                <td>{{etablissement.codeEtablissement}}</td>
+                <td>{{etablissement.libelleEtablissement}}</td>
+                <td>{{etablissement.nomResponsableEtablissement}}</td>
+                <td>{{etablissement.prenomResponsableEtablissement}}</td>
+                <td>{{etablissement.contactactEtablissement}}</td>
+                <td>
+                    <div *ngIf="etablissement.cebId">
+                        <a [routerLink]="['../ceb', etablissement.cebId , 'view' ]" >{{etablissement.cebId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="etablissement.typeEtablissementId">
+                        <a [routerLink]="['../type-etablissement', etablissement.typeEtablissementId , 'view' ]" >{{etablissement.typeEtablissementId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="etablissement.villageSecteurId">
+                        <a [routerLink]="['../village-secteur', etablissement.villageSecteurId , 'view' ]" >{{etablissement.villageSecteurId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="etablissement.centreCompositionId">
+                        <a [routerLink]="['../centre-composition', etablissement.centreCompositionId , 'view' ]" >{{etablissement.centreCompositionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/etablissement', etablissement.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/etablissement', etablissement.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'etablissement', { outlets: { popup: etablissement.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

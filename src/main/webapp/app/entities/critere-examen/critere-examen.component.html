@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.critereExamen.home.title">Critere Examen</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-critere-examen" [routerLink]="['/critere-examen/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.critereExamen.home.createLabel">
+            Create new Critere Examen
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="critereExamen">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleCritereExamen"><span jhiTranslate="sigecApp.critereExamen.libelleCritereExamen">Libelle Critere Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valeur"><span jhiTranslate="sigecApp.critereExamen.valeur">Valeur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="regionId"><span jhiTranslate="sigecApp.critereExamen.region">Region</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="optionConcoursRattacheId"><span jhiTranslate="sigecApp.critereExamen.optionConcoursRattache">Option Concours Rattache</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sessionId"><span jhiTranslate="sigecApp.critereExamen.session">Session</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeExamenId"><span jhiTranslate="sigecApp.critereExamen.typeExamen">Type Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeCritereId"><span jhiTranslate="sigecApp.critereExamen.typeCritere">Type Critere</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let critereExamen of critereExamen ;trackBy: trackId">
+                <td><a [routerLink]="['/critere-examen', critereExamen.id, 'view' ]">{{critereExamen.id}}</a></td>
+                <td>{{critereExamen.libelleCritereExamen}}</td>
+                <td>{{critereExamen.valeur}}</td>
+                <td>
+                    <div *ngIf="critereExamen.regionId">
+                        <a [routerLink]="['../region', critereExamen.regionId , 'view' ]" >{{critereExamen.regionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="critereExamen.optionConcoursRattacheId">
+                        <a [routerLink]="['../option-concours-rattache', critereExamen.optionConcoursRattacheId , 'view' ]" >{{critereExamen.optionConcoursRattacheId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="critereExamen.sessionId">
+                        <a [routerLink]="['../session', critereExamen.sessionId , 'view' ]" >{{critereExamen.sessionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="critereExamen.typeExamenId">
+                        <a [routerLink]="['../type-examen', critereExamen.typeExamenId , 'view' ]" >{{critereExamen.typeExamenId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="critereExamen.typeCritereId">
+                        <a [routerLink]="['../type-critere', critereExamen.typeCritereId , 'view' ]" >{{critereExamen.typeCritereId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/critere-examen', critereExamen.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/critere-examen', critereExamen.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'critere-examen', { outlets: { popup: critereExamen.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

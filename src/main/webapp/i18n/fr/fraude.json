@@ -1,0 +1,26 @@
+{
+    "sigecApp": {
+        "fraude": {
+            "home": {
+                "title": "Fraudes",
+                "createLabel": "Créer un nouveau Fraude",
+                "createOrEditLabel": "Créer ou éditer un Fraude"
+            },
+            "created": "Un nouveau Fraude a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fraude avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fraude avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fraude {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fraude"
+            },
+            "libelleFraude": "Libelle Fraude",
+            "sanction": "Sanction",
+            "pieceAConviction": "Piece A Conviction",
+            "typeFraude": "Type Fraude",
+            "inscription": "Inscription",
+            "membreJury": "Membre Jury"
+        }
+    }
+}

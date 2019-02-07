@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-note-membre-critere-heading" jhiTranslate="sigecApp.noteMembreCritere.home.createOrEditLabel">Create or edit a Note Membre Critere</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!noteMembreCritere.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="noteMembreCritere.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.noteMembreCritere.valeurNote" for="field_valeurNote">Valeur Note</label>
+                    <input type="number" class="form-control" name="valeurNote" id="field_valeurNote"
+                        [(ngModel)]="noteMembreCritere.valeurNote" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.noteMembreCritere.membreJury" for="field_membreJury">Membre Jury</label>
+                    <select class="form-control" id="field_membreJury" name="membreJury" [(ngModel)]="noteMembreCritere.membreJuryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="membreJuryOption.id" *ngFor="let membreJuryOption of membrejuries; trackBy: trackMembreJuryById">{{membreJuryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.noteMembreCritere.critereChoixMembreJury" for="field_critereChoixMembreJury">Critere Choix Membre Jury</label>
+                    <select class="form-control" id="field_critereChoixMembreJury" name="critereChoixMembreJury" [(ngModel)]="noteMembreCritere.critereChoixMembreJuryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="critereChoixMembreJuryOption.id" *ngFor="let critereChoixMembreJuryOption of criterechoixmembrejuries; trackBy: trackCritereChoixMembreJuryById">{{critereChoixMembreJuryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

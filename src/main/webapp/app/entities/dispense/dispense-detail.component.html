@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dispense">
+            <h2><span jhiTranslate="sigecApp.dispense.detail.title">Dispense</span> {{dispense.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.dispense.motitDispense">Motit Dispense</span></dt>
+                <dd>
+                    <span>{{dispense.motitDispense}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.dispense.nomPrenomMedecin">Nom Prenom Medecin</span></dt>
+                <dd>
+                    <span>{{dispense.nomPrenomMedecin}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.dispense.epreuveSpecialiteOption">Epreuve Specialite Option</span></dt>
+                <dd>
+                    <span *ngFor="let epreuveSpecialiteOption of dispense.epreuveSpecialiteOptions; let last = last">
+                        <a [routerLink]="['/epreuve-specialite-option', epreuveSpecialiteOption?.id, 'view' ]">{{epreuveSpecialiteOption.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.dispense.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="dispense.inscriptionId">
+                        <a [routerLink]="['/inscription', dispense.inscriptionId, 'view']">{{dispense.inscriptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.dispense.handicape">Handicape</span></dt>
+                <dd>
+                    <div *ngIf="dispense.handicapeId">
+                        <a [routerLink]="['/handicape', dispense.handicapeId, 'view']">{{dispense.handicapeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dispense', dispense.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

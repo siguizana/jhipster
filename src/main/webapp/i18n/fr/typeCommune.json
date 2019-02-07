@@ -1,0 +1,9 @@
+{
+    "sigecApp": {
+        "TypeCommune": {
+            "null": "",
+            "RURALE": "RURALE",
+            "URBAINE": "URBAINE"
+        }
+    }
+}

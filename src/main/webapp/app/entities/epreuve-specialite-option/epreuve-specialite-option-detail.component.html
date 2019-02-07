@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="epreuveSpecialiteOption">
+            <h2><span jhiTranslate="sigecApp.epreuveSpecialiteOption.detail.title">Epreuve Specialite Option</span> {{epreuveSpecialiteOption.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveRachat">Epreuve Rachat</span></dt>
+                <dd>
+                    <span>{{epreuveSpecialiteOption.epreuveRachat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveAdmissibilite">Epreuve Admissibilite</span></dt>
+                <dd>
+                    <span>{{epreuveSpecialiteOption.epreuveAdmissibilite}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveFacultative">Epreuve Facultative</span></dt>
+                <dd>
+                    <span>{{epreuveSpecialiteOption.epreuveFacultative}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.noteEliminatoire">Note Eliminatoire</span></dt>
+                <dd>
+                    <span>{{epreuveSpecialiteOption.noteEliminatoire}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.coefficient">Coefficient</span></dt>
+                <dd>
+                    <span>{{epreuveSpecialiteOption.coefficient}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="epreuveSpecialiteOption.inscriptionId">
+                        <a [routerLink]="['/inscription', epreuveSpecialiteOption.inscriptionId, 'view']">{{epreuveSpecialiteOption.inscriptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuve">Epreuve</span></dt>
+                <dd>
+                    <div *ngIf="epreuveSpecialiteOption.epreuveId">
+                        <a [routerLink]="['/epreuve', epreuveSpecialiteOption.epreuveId, 'view']">{{epreuveSpecialiteOption.epreuveId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.specialiteOption">Specialite Option</span></dt>
+                <dd>
+                    <div *ngIf="epreuveSpecialiteOption.specialiteOptionId">
+                        <a [routerLink]="['/specialite-option', epreuveSpecialiteOption.specialiteOptionId, 'view']">{{epreuveSpecialiteOption.specialiteOptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.epreuveSpecialiteOption.groupeEpreuve">Groupe Epreuve</span></dt>
+                <dd>
+                    <div *ngIf="epreuveSpecialiteOption.groupeEpreuveId">
+                        <a [routerLink]="['/groupe-epreuve', epreuveSpecialiteOption.groupeEpreuveId, 'view']">{{epreuveSpecialiteOption.groupeEpreuveId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/epreuve-specialite-option', epreuveSpecialiteOption.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

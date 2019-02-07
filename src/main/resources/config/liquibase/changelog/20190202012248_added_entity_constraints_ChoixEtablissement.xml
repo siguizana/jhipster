@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ChoixEtablissement.
+    -->
+    <changeSet id="20190202012248-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="choix_etablissement"
+                                 constraintName="fk_choix_etablissement_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+        <addForeignKeyConstraint baseColumnNames="etablissement_id"
+                                 baseTableName="choix_etablissement"
+                                 constraintName="fk_choix_etablissement_etablissement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etablissement"/>
+
+        <addForeignKeyConstraint baseColumnNames="specialite_option_id"
+                                 baseTableName="choix_etablissement"
+                                 constraintName="fk_choix_etablissement_specialite_option_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="specialite_option"/>
+
+    </changeSet>
+</databaseChangeLog>

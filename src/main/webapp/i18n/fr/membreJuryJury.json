@@ -1,0 +1,33 @@
+{
+    "sigecApp": {
+        "membreJuryJury": {
+            "home": {
+                "title": "MembreJuryJuries",
+                "createLabel": "Créer un nouveau Membre Jury Jury",
+                "createOrEditLabel": "Créer ou éditer un Membre Jury Jury"
+            },
+            "created": "Un nouveau Membre Jury Jury a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Membre Jury Jury avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Membre Jury Jury avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Membre Jury Jury {{ id }} ?"
+            },
+            "detail": {
+                "title": "Membre Jury Jury"
+            },
+            "fonction": "Fonction",
+            "status": "Status",
+            "experience": "Experience",
+            "secteur": "Secteur",
+            "quartier": "Quartier",
+            "diplomeAcademique": "Diplome Academique",
+            "diplomeProfessionnel": "Diplome Professionnel",
+            "nomChefEtablissement": "Nom Chef Etablissement",
+            "prenomChefEtabissement": "Prenom Chef Etabissement",
+            "avisChefEtablissement": "Avis Chef Etablissement",
+            "commission": "Commission",
+            "jury": "Jury",
+            "membreJury": "Membre Jury"
+        }
+    }
+}

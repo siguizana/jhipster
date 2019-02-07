@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.specialiteOption.home.title">Specialite Options</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specialite-option" [routerLink]="['/specialite-option/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.specialiteOption.home.createLabel">
+            Create new Specialite Option
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="specialiteOptions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelle"><span jhiTranslate="sigecApp.specialiteOption.libelle">Libelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeExamenId"><span jhiTranslate="sigecApp.specialiteOption.typeExamen">Type Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="filiereId"><span jhiTranslate="sigecApp.specialiteOption.filiere">Filiere</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let specialiteOption of specialiteOptions ;trackBy: trackId">
+                <td><a [routerLink]="['/specialite-option', specialiteOption.id, 'view' ]">{{specialiteOption.id}}</a></td>
+                <td>{{specialiteOption.libelle}}</td>
+                <td>
+                    <div *ngIf="specialiteOption.typeExamenId">
+                        <a [routerLink]="['../type-examen', specialiteOption.typeExamenId , 'view' ]" >{{specialiteOption.typeExamenId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="specialiteOption.filiereId">
+                        <a [routerLink]="['../filiere', specialiteOption.filiereId , 'view' ]" >{{specialiteOption.filiereId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/specialite-option', specialiteOption.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/specialite-option', specialiteOption.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'specialite-option', { outlets: { popup: specialiteOption.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

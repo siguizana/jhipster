@@ -1,0 +1,26 @@
+{
+    "sigecApp": {
+        "typeExamen": {
+            "home": {
+                "title": "TypeExamen",
+                "createLabel": "Créer un nouveau Type Examen",
+                "createOrEditLabel": "Créer ou éditer un Type Examen"
+            },
+            "created": "Un nouveau Type Examen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Examen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Examen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Examen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Examen"
+            },
+            "libelle": "Libelle",
+            "etapeExamen": "Etape Examen",
+            "concoursRattache": "Concours Rattache",
+            "critereExamen": "Critere Examen",
+            "specialiteOption": "Specialite Option",
+            "inscription": "Inscription"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "NoteMembreCritere",
+    "fields": [
+        {
+            "fieldName": "valeurNote",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "membreJury",
+            "otherEntityName": "membreJury",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "critereChoixMembreJury",
+            "otherEntityName": "critereChoixMembreJury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012239",
+    "entityTableName": "note_membre_critere",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

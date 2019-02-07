@@ -1,0 +1,98 @@
+{
+    "name": "Candidat",
+    "fields": [
+        {
+            "fieldName": "codeCandidat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomCandidat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenomCandidat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateNaissance",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lieuNaissance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paysNaissance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sexe",
+            "fieldType": "Sexe",
+            "fieldValues": "MASCULIN,FEMININ",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telephoneCandidat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nationaliteCandidat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "matriculeCandidat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateEnregistrementCandidat",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDebutCariereCandidat",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "candidat"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "deroulementScolarite",
+            "otherEntityName": "deroulementScolarite",
+            "otherEntityRelationshipName": "candidat"
+        }
+    ],
+    "changelogDate": "20190202012220",
+    "entityTableName": "candidat",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

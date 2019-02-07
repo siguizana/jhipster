@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "optionConcoursRattache": {
+            "home": {
+                "title": "OptionConcoursRattaches",
+                "createLabel": "Créer un nouveau Option Concours Rattache",
+                "createOrEditLabel": "Créer ou éditer un Option Concours Rattache"
+            },
+            "created": "Un nouveau Option Concours Rattache a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Option Concours Rattache avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Option Concours Rattache avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Option Concours Rattache {{ id }} ?"
+            },
+            "detail": {
+                "title": "Option Concours Rattache"
+            },
+            "libelleOptionConcoursRattache": "Libelle Option Concours Rattache",
+            "resultat": "Resultat",
+            "critereExamen": "Critere Examen",
+            "inscription": "Inscription",
+            "concoursRattache": "Concours Rattache"
+        }
+    }
+}

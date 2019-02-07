@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-village-secteur-heading" jhiTranslate="sigecApp.villageSecteur.home.createOrEditLabel">Create or edit a Village Secteur</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!villageSecteur.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="villageSecteur.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.villageSecteur.codeVillageSecteur" for="field_codeVillageSecteur">Code Village Secteur</label>
+                    <input type="text" class="form-control" name="codeVillageSecteur" id="field_codeVillageSecteur"
+                        [(ngModel)]="villageSecteur.codeVillageSecteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.villageSecteur.libelleVillageSecteur" for="field_libelleVillageSecteur">Libelle Village Secteur</label>
+                    <input type="text" class="form-control" name="libelleVillageSecteur" id="field_libelleVillageSecteur"
+                        [(ngModel)]="villageSecteur.libelleVillageSecteur" required/>
+                    <div [hidden]="!(editForm.controls.libelleVillageSecteur?.dirty && editForm.controls.libelleVillageSecteur?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleVillageSecteur?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.villageSecteur.commune" for="field_commune">Commune</label>
+                    <select class="form-control" id="field_commune" name="commune" [(ngModel)]="villageSecteur.communeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communeOption.id" *ngFor="let communeOption of communes; trackBy: trackCommuneById">{{communeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

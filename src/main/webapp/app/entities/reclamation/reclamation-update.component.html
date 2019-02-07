@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reclamation-heading" jhiTranslate="sigecApp.reclamation.home.createOrEditLabel">Create or edit a Reclamation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reclamation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reclamation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.reclamation.motifReclamation" for="field_motifReclamation">Motif Reclamation</label>
+                    <input type="text" class="form-control" name="motifReclamation" id="field_motifReclamation"
+                        [(ngModel)]="reclamation.motifReclamation" required/>
+                    <div [hidden]="!(editForm.controls.motifReclamation?.dirty && editForm.controls.motifReclamation?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motifReclamation?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.reclamation.dateReclamation" for="field_dateReclamation">Date Reclamation</label>
+                    <div class="input-group">
+                        <input id="field_dateReclamation" type="text" class="form-control" name="dateReclamation" ngbDatepicker  #dateReclamationDp="ngbDatepicker" [(ngModel)]="reclamation.dateReclamation"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReclamationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.reclamation.noteReclamation" for="field_noteReclamation">Note Reclamation</label>
+                    <input type="number" class="form-control" name="noteReclamation" id="field_noteReclamation"
+                        [(ngModel)]="reclamation.noteReclamation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.reclamation.statutReclamation" for="field_statutReclamation">Statut Reclamation</label>
+                    <input type="checkbox" class="form-control" name="statutReclamation" id="field_statutReclamation"
+                        [(ngModel)]="reclamation.statutReclamation" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.reclamation.compositionCopie" for="field_compositionCopie">Composition Copie</label>
+                    <select class="form-control" id="field_compositionCopie" name="compositionCopie" [(ngModel)]="reclamation.compositionCopieId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compositionCopieOption.id" *ngFor="let compositionCopieOption of compositioncopies; trackBy: trackCompositionCopieById">{{compositionCopieOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

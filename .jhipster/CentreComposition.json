@@ -1,0 +1,53 @@
+{
+    "name": "CentreComposition",
+    "fields": [
+        {
+            "fieldName": "libelleCentreComposition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "centreCompositioJury",
+            "otherEntityName": "centreCompositioJury",
+            "otherEntityRelationshipName": "centreComposition"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityRelationshipName": "centreComposition"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ceb",
+            "otherEntityName": "ceb",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "zoneExamen",
+            "otherEntityName": "zoneExamen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeCentreComposition",
+            "otherEntityName": "typeCentreComposition",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012302",
+    "entityTableName": "centre_composition",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

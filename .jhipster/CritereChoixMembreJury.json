@@ -1,0 +1,43 @@
+{
+    "name": "CritereChoixMembreJury",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "noteParDefaut",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "noteMembreCritere",
+            "otherEntityName": "noteMembreCritere",
+            "otherEntityRelationshipName": "critereChoixMembreJury"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "typeMembreJury",
+            "otherEntityName": "typeMembreJury",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "critereChoixMembreJury"
+        }
+    ],
+    "changelogDate": "20190202012238",
+    "entityTableName": "critere_choix_membre_jury",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

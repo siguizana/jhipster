@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fraude">
+            <h2><span jhiTranslate="sigecApp.fraude.detail.title">Fraude</span> {{fraude.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.fraude.libelleFraude">Libelle Fraude</span></dt>
+                <dd>
+                    <span>{{fraude.libelleFraude}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.fraude.typeFraude">Type Fraude</span></dt>
+                <dd>
+                    <div *ngIf="fraude.typeFraudeId">
+                        <a [routerLink]="['/type-fraude', fraude.typeFraudeId, 'view']">{{fraude.typeFraudeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.fraude.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="fraude.inscriptionId">
+                        <a [routerLink]="['/inscription', fraude.inscriptionId, 'view']">{{fraude.inscriptionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fraude', fraude.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

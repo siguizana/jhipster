@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-composition-copie-heading" jhiTranslate="sigecApp.compositionCopie.home.createOrEditLabel">Create or edit a Composition Copie</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!compositionCopie.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="compositionCopie.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.note" for="field_note">Note</label>
+                    <input type="number" class="form-control" name="note" id="field_note"
+                        [(ngModel)]="compositionCopie.note" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.dateComposition" for="field_dateComposition">Date Composition</label>
+                    <div class="input-group">
+                        <input id="field_dateComposition" type="text" class="form-control" name="dateComposition" ngbDatepicker  #dateCompositionDp="ngbDatepicker" [(ngModel)]="compositionCopie.dateComposition"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCompositionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.numeroAnonymat" for="field_numeroAnonymat">Numero Anonymat</label>
+                    <input type="text" class="form-control" name="numeroAnonymat" id="field_numeroAnonymat"
+                        [(ngModel)]="compositionCopie.numeroAnonymat" required/>
+                    <div [hidden]="!(editForm.controls.numeroAnonymat?.dirty && editForm.controls.numeroAnonymat?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numeroAnonymat?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="compositionCopie.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.epreuveSpecialiteOption" for="field_epreuveSpecialiteOption">Epreuve Specialite Option</label>
+                    <select class="form-control" id="field_epreuveSpecialiteOption" name="epreuveSpecialiteOption" [(ngModel)]="compositionCopie.epreuveSpecialiteOptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="epreuveSpecialiteOptionOption.id" *ngFor="let epreuveSpecialiteOptionOption of epreuvespecialiteoptions; trackBy: trackEpreuveSpecialiteOptionById">{{epreuveSpecialiteOptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.compositionCopie.etapeExamen" for="field_etapeExamen">Etape Examen</label>
+                    <select class="form-control" id="field_etapeExamen" name="etapeExamen" [(ngModel)]="compositionCopie.etapeExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etapeExamenOption.id" *ngFor="let etapeExamenOption of etapeexamen; trackBy: trackEtapeExamenById">{{etapeExamenOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

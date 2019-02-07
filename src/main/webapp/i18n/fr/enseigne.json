@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "enseigne": {
+            "home": {
+                "title": "Enseignes",
+                "createLabel": "Créer un nouveau Enseigne",
+                "createOrEditLabel": "Créer ou éditer un Enseigne"
+            },
+            "created": "Un nouveau Enseigne a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Enseigne avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Enseigne avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Enseigne {{ id }} ?"
+            },
+            "detail": {
+                "title": "Enseigne"
+            },
+            "classeEnseigne": "Classe Enseigne",
+            "etablissement": "Etablissement",
+            "enseignant": "Enseignant",
+            "session": "Session"
+        }
+    }
+}

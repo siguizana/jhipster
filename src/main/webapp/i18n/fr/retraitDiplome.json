@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "retraitDiplome": {
+            "home": {
+                "title": "RetraitDiplomes",
+                "createLabel": "Créer un nouveau Retrait Diplome",
+                "createOrEditLabel": "Créer ou éditer un Retrait Diplome"
+            },
+            "created": "Un nouveau Retrait Diplome a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Retrait Diplome avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Retrait Diplome avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Retrait Diplome {{ id }} ?"
+            },
+            "detail": {
+                "title": "Retrait Diplome"
+            },
+            "dateRetrait": "Date Retrait",
+            "resultat": "Resultat",
+            "typeDiplome": "Type Diplome"
+        }
+    }
+}

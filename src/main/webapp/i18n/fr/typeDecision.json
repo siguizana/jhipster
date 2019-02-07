@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "typeDecision": {
+            "home": {
+                "title": "TypeDecisions",
+                "createLabel": "Créer un nouveau Type Decision",
+                "createOrEditLabel": "Créer ou éditer un Type Decision"
+            },
+            "created": "Un nouveau Type Decision a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Decision avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Decision avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Decision {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Decision"
+            },
+            "libelleTypeDecision": "Libelle Type Decision",
+            "resultat": "Resultat"
+        }
+    }
+}

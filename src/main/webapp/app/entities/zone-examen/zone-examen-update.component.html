@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-zone-examen-heading" jhiTranslate="sigecApp.zoneExamen.home.createOrEditLabel">Create or edit a Zone Examen</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!zoneExamen.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="zoneExamen.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.zoneExamen.codeZoneExamen" for="field_codeZoneExamen">Code Zone Examen</label>
+                    <input type="text" class="form-control" name="codeZoneExamen" id="field_codeZoneExamen"
+                        [(ngModel)]="zoneExamen.codeZoneExamen" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.zoneExamen.libelleZoneExamen" for="field_libelleZoneExamen">Libelle Zone Examen</label>
+                    <input type="text" class="form-control" name="libelleZoneExamen" id="field_libelleZoneExamen"
+                        [(ngModel)]="zoneExamen.libelleZoneExamen" required/>
+                    <div [hidden]="!(editForm.controls.libelleZoneExamen?.dirty && editForm.controls.libelleZoneExamen?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleZoneExamen?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.zoneExamen.centreExamen" for="field_centreExamen">Centre Examen</label>
+                    <select class="form-control" id="field_centreExamen" name="centreExamen" [(ngModel)]="zoneExamen.centreExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="centreExamenOption.id" *ngFor="let centreExamenOption of centreexamen; trackBy: trackCentreExamenById">{{centreExamenOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fraude-heading" jhiTranslate="sigecApp.fraude.home.createOrEditLabel">Create or edit a Fraude</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fraude.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fraude.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.fraude.libelleFraude" for="field_libelleFraude">Libelle Fraude</label>
+                    <input type="text" class="form-control" name="libelleFraude" id="field_libelleFraude"
+                        [(ngModel)]="fraude.libelleFraude" required/>
+                    <div [hidden]="!(editForm.controls.libelleFraude?.dirty && editForm.controls.libelleFraude?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleFraude?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.fraude.typeFraude" for="field_typeFraude">Type Fraude</label>
+                    <select class="form-control" id="field_typeFraude" name="typeFraude" [(ngModel)]="fraude.typeFraudeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeFraudeOption.id" *ngFor="let typeFraudeOption of typefraudes; trackBy: trackTypeFraudeById">{{typeFraudeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.fraude.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="fraude.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

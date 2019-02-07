@@ -1,0 +1,32 @@
+{
+    "sigecApp": {
+        "epreuveSpecialiteOption": {
+            "home": {
+                "title": "EpreuveSpecialiteOptions",
+                "createLabel": "Créer un nouveau Epreuve Specialite Option",
+                "createOrEditLabel": "Créer ou éditer un Epreuve Specialite Option"
+            },
+            "created": "Un nouveau Epreuve Specialite Option a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Epreuve Specialite Option avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Epreuve Specialite Option avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Epreuve Specialite Option {{ id }} ?"
+            },
+            "detail": {
+                "title": "Epreuve Specialite Option"
+            },
+            "epreuveRachat": "Epreuve Rachat",
+            "epreuveAdmissibilite": "Epreuve Admissibilite",
+            "epreuveFacultative": "Epreuve Facultative",
+            "noteEliminatoire": "Note Eliminatoire",
+            "coefficient": "Coefficient",
+            "compositionCopie": "Composition Copie",
+            "absence": "Absence",
+            "inscription": "Inscription",
+            "epreuve": "Epreuve",
+            "specialiteOption": "Specialite Option",
+            "groupeEpreuve": "Groupe Epreuve",
+            "dispense": "Dispense"
+        }
+    }
+}

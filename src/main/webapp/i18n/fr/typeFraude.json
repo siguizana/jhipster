@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "typeFraude": {
+            "home": {
+                "title": "TypeFraudes",
+                "createLabel": "Créer un nouveau Type Fraude",
+                "createOrEditLabel": "Créer ou éditer un Type Fraude"
+            },
+            "created": "Un nouveau Type Fraude a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Fraude avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Fraude avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Fraude {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Fraude"
+            },
+            "libelleTypeFraude": "Libelle Type Fraude",
+            "fraude": "Fraude"
+        }
+    }
+}

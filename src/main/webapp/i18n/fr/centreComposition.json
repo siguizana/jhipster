@@ -1,0 +1,26 @@
+{
+    "sigecApp": {
+        "centreComposition": {
+            "home": {
+                "title": "CentreCompositions",
+                "createLabel": "Créer un nouveau Centre Composition",
+                "createOrEditLabel": "Créer ou éditer un Centre Composition"
+            },
+            "created": "Un nouveau Centre Composition a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Centre Composition avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Centre Composition avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Centre Composition {{ id }} ?"
+            },
+            "detail": {
+                "title": "Centre Composition"
+            },
+            "libelleCentreComposition": "Libelle Centre Composition",
+            "centreCompositioJury": "Centre Compositio Jury",
+            "etablissement": "Etablissement",
+            "ceb": "Ceb",
+            "zoneExamen": "Zone Examen",
+            "typeCentreComposition": "Type Centre Composition"
+        }
+    }
+}

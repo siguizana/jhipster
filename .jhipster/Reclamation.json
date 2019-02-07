@@ -1,0 +1,41 @@
+{
+    "name": "Reclamation",
+    "fields": [
+        {
+            "fieldName": "motifReclamation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateReclamation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "noteReclamation",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "statutReclamation",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "compositionCopie",
+            "otherEntityName": "compositionCopie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012233",
+    "entityTableName": "reclamation",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

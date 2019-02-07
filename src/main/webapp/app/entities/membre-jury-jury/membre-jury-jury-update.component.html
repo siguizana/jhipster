@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-membre-jury-jury-heading" jhiTranslate="sigecApp.membreJuryJury.home.createOrEditLabel">Create or edit a Membre Jury Jury</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!membreJuryJury.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="membreJuryJury.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.fonction" for="field_fonction">Fonction</label>
+                    <input type="text" class="form-control" name="fonction" id="field_fonction"
+                        [(ngModel)]="membreJuryJury.fonction" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="membreJuryJury.status" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.experience" for="field_experience">Experience</label>
+                    <input type="text" class="form-control" name="experience" id="field_experience"
+                        [(ngModel)]="membreJuryJury.experience" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.secteur" for="field_secteur">Secteur</label>
+                    <input type="text" class="form-control" name="secteur" id="field_secteur"
+                        [(ngModel)]="membreJuryJury.secteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.quartier" for="field_quartier">Quartier</label>
+                    <input type="text" class="form-control" name="quartier" id="field_quartier"
+                        [(ngModel)]="membreJuryJury.quartier" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.diplomeAcademique" for="field_diplomeAcademique">Diplome Academique</label>
+                    <input type="text" class="form-control" name="diplomeAcademique" id="field_diplomeAcademique"
+                        [(ngModel)]="membreJuryJury.diplomeAcademique" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.diplomeProfessionnel" for="field_diplomeProfessionnel">Diplome Professionnel</label>
+                    <input type="text" class="form-control" name="diplomeProfessionnel" id="field_diplomeProfessionnel"
+                        [(ngModel)]="membreJuryJury.diplomeProfessionnel" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.nomChefEtablissement" for="field_nomChefEtablissement">Nom Chef Etablissement</label>
+                    <input type="text" class="form-control" name="nomChefEtablissement" id="field_nomChefEtablissement"
+                        [(ngModel)]="membreJuryJury.nomChefEtablissement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.prenomChefEtabissement" for="field_prenomChefEtabissement">Prenom Chef Etabissement</label>
+                    <input type="text" class="form-control" name="prenomChefEtabissement" id="field_prenomChefEtabissement"
+                        [(ngModel)]="membreJuryJury.prenomChefEtabissement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.avisChefEtablissement" for="field_avisChefEtablissement">Avis Chef Etablissement</label>
+                    <input type="text" class="form-control" name="avisChefEtablissement" id="field_avisChefEtablissement"
+                        [(ngModel)]="membreJuryJury.avisChefEtablissement" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="sigecApp.membreJuryJury.commission" for="field_commission">Commission</label>
+                    <select class="form-control" id="field_commission" multiple name="commission" [(ngModel)]="membreJuryJury.commissions">
+                        <option [ngValue]="getSelected(membreJuryJury.commissions, commissionOption)" *ngFor="let commissionOption of commissions; trackBy: trackCommissionById">{{commissionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.jury" for="field_jury">Jury</label>
+                    <select class="form-control" id="field_jury" name="jury" [(ngModel)]="membreJuryJury.juryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="juryOption.id" *ngFor="let juryOption of juries; trackBy: trackJuryById">{{juryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.membreJuryJury.membreJury" for="field_membreJury">Membre Jury</label>
+                    <select class="form-control" id="field_membreJury" name="membreJury" [(ngModel)]="membreJuryJury.membreJuryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="membreJuryOption.id" *ngFor="let membreJuryOption of membrejuries; trackBy: trackMembreJuryById">{{membreJuryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

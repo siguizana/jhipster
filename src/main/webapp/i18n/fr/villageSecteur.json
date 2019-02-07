@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "villageSecteur": {
+            "home": {
+                "title": "VillageSecteurs",
+                "createLabel": "Créer un nouveau Village Secteur",
+                "createOrEditLabel": "Créer ou éditer un Village Secteur"
+            },
+            "created": "Un nouveau Village Secteur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Village Secteur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Village Secteur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Village Secteur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Village Secteur"
+            },
+            "codeVillageSecteur": "Code Village Secteur",
+            "libelleVillageSecteur": "Libelle Village Secteur",
+            "etablissement": "Etablissement",
+            "inscription": "Inscription",
+            "commune": "Commune"
+        }
+    }
+}

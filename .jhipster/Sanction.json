@@ -1,0 +1,29 @@
+{
+    "name": "Sanction",
+    "fields": [
+        {
+            "fieldName": "libelleSanction",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fraude",
+            "otherEntityName": "fraude",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012245",
+    "entityTableName": "sanction",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

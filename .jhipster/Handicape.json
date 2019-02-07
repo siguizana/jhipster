@@ -1,0 +1,29 @@
+{
+    "name": "Handicape",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dispense",
+            "otherEntityName": "dispense",
+            "otherEntityRelationshipName": "handicape"
+        }
+    ],
+    "changelogDate": "20190202012224",
+    "entityTableName": "handicape",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

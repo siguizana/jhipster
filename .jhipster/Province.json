@@ -1,0 +1,39 @@
+{
+    "name": "Province",
+    "fields": [
+        {
+            "fieldName": "codeProvince",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleProvince",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "commune",
+            "otherEntityName": "commune",
+            "otherEntityRelationshipName": "province"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012310",
+    "entityTableName": "province",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

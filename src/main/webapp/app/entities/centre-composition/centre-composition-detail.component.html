@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="centreComposition">
+            <h2><span jhiTranslate="sigecApp.centreComposition.detail.title">Centre Composition</span> {{centreComposition.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.centreComposition.libelleCentreComposition">Libelle Centre Composition</span></dt>
+                <dd>
+                    <span>{{centreComposition.libelleCentreComposition}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.centreComposition.ceb">Ceb</span></dt>
+                <dd>
+                    <div *ngIf="centreComposition.cebId">
+                        <a [routerLink]="['/ceb', centreComposition.cebId, 'view']">{{centreComposition.cebId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.centreComposition.zoneExamen">Zone Examen</span></dt>
+                <dd>
+                    <div *ngIf="centreComposition.zoneExamenId">
+                        <a [routerLink]="['/zone-examen', centreComposition.zoneExamenId, 'view']">{{centreComposition.zoneExamenId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.centreComposition.typeCentreComposition">Type Centre Composition</span></dt>
+                <dd>
+                    <div *ngIf="centreComposition.typeCentreCompositionId">
+                        <a [routerLink]="['/type-centre-composition', centreComposition.typeCentreCompositionId, 'view']">{{centreComposition.typeCentreCompositionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/centre-composition', centreComposition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+    "name": "TypeCritere",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "critereExamen",
+            "otherEntityName": "critereExamen",
+            "otherEntityRelationshipName": "typeCritere"
+        }
+    ],
+    "changelogDate": "20190202012225",
+    "entityTableName": "type_critere",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

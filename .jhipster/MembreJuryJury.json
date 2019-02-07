@@ -1,0 +1,76 @@
+{
+    "name": "MembreJuryJury",
+    "fields": [
+        {
+            "fieldName": "fonction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "experience",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "secteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quartier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diplomeAcademique",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diplomeProfessionnel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomChefEtablissement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomChefEtabissement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "avisChefEtablissement",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "membreJuryJury",
+            "relationshipName": "commission",
+            "otherEntityName": "commission",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "jury",
+            "otherEntityName": "jury",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "membreJury",
+            "otherEntityName": "membreJury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012236",
+    "entityTableName": "membre_jury_jury",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

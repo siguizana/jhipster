@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Fraude.
+    -->
+    <changeSet id="20190202012242-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_fraude_id"
+                                 baseTableName="fraude"
+                                 constraintName="fk_fraude_type_fraude_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_fraude"/>
+
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="fraude"
+                                 constraintName="fk_fraude_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-epreuve-specialite-option-heading" jhiTranslate="sigecApp.epreuveSpecialiteOption.home.createOrEditLabel">Create or edit a Epreuve Specialite Option</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!epreuveSpecialiteOption.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="epreuveSpecialiteOption.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveRachat" for="field_epreuveRachat">Epreuve Rachat</label>
+                    <input type="checkbox" class="form-control" name="epreuveRachat" id="field_epreuveRachat"
+                        [(ngModel)]="epreuveSpecialiteOption.epreuveRachat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveAdmissibilite" for="field_epreuveAdmissibilite">Epreuve Admissibilite</label>
+                    <input type="checkbox" class="form-control" name="epreuveAdmissibilite" id="field_epreuveAdmissibilite"
+                        [(ngModel)]="epreuveSpecialiteOption.epreuveAdmissibilite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveFacultative" for="field_epreuveFacultative">Epreuve Facultative</label>
+                    <input type="checkbox" class="form-control" name="epreuveFacultative" id="field_epreuveFacultative"
+                        [(ngModel)]="epreuveSpecialiteOption.epreuveFacultative" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.noteEliminatoire" for="field_noteEliminatoire">Note Eliminatoire</label>
+                    <input type="number" class="form-control" name="noteEliminatoire" id="field_noteEliminatoire"
+                        [(ngModel)]="epreuveSpecialiteOption.noteEliminatoire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.coefficient" for="field_coefficient">Coefficient</label>
+                    <input type="number" class="form-control" name="coefficient" id="field_coefficient"
+                        [(ngModel)]="epreuveSpecialiteOption.coefficient" required/>
+                    <div [hidden]="!(editForm.controls.coefficient?.dirty && editForm.controls.coefficient?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.coefficient?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.coefficient?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="epreuveSpecialiteOption.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuve" for="field_epreuve">Epreuve</label>
+                    <select class="form-control" id="field_epreuve" name="epreuve" [(ngModel)]="epreuveSpecialiteOption.epreuveId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="epreuveOption.id" *ngFor="let epreuveOption of epreuves; trackBy: trackEpreuveById">{{epreuveOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.specialiteOption" for="field_specialiteOption">Specialite Option</label>
+                    <select class="form-control" id="field_specialiteOption" name="specialiteOption" [(ngModel)]="epreuveSpecialiteOption.specialiteOptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialiteOptionOption.id" *ngFor="let specialiteOptionOption of specialiteoptions; trackBy: trackSpecialiteOptionById">{{specialiteOptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.epreuveSpecialiteOption.groupeEpreuve" for="field_groupeEpreuve">Groupe Epreuve</label>
+                    <select class="form-control" id="field_groupeEpreuve" name="groupeEpreuve" [(ngModel)]="epreuveSpecialiteOption.groupeEpreuveId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeEpreuveOption.id" *ngFor="let groupeEpreuveOption of groupeepreuves; trackBy: trackGroupeEpreuveById">{{groupeEpreuveOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

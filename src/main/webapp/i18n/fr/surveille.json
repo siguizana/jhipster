@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "surveille": {
+            "home": {
+                "title": "Surveilles",
+                "createLabel": "Créer un nouveau Surveille",
+                "createOrEditLabel": "Créer ou éditer un Surveille"
+            },
+            "created": "Un nouveau Surveille a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Surveille avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Surveille avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Surveille {{ id }} ?"
+            },
+            "detail": {
+                "title": "Surveille"
+            },
+            "dateDebutSurveillance": "Date Debut Surveillance",
+            "dateFinSurveillance": "Date Fin Surveillance",
+            "membreJury": "Membre Jury",
+            "salleComposition": "Salle Composition"
+        }
+    }
+}

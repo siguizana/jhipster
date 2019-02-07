@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Inscription.
+    -->
+    <changeSet id="20190202012222-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="village_secteur_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_village_secteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="village_secteur"/>
+
+        <addForeignKeyConstraint baseColumnNames="etablissement_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_etablissement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etablissement"/>
+
+        <addForeignKeyConstraint baseColumnNames="session_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_session_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="session"/>
+
+        <addForeignKeyConstraint baseColumnNames="option_concours_rattache_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_option_concours_rattache_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="option_concours_rattache"/>
+
+        <addForeignKeyConstraint baseColumnNames="candidat_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_candidat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="candidat"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_examen_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_type_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_examen"/>
+
+        <addForeignKeyConstraint baseColumnNames="centre_compositio_jury_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_centre_compositio_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="centre_compositio_jury"/>
+
+        <addForeignKeyConstraint baseColumnNames="salle_composition_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_salle_composition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="salle_composition"/>
+
+        <addForeignKeyConstraint baseColumnNames="jury_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jury"/>
+
+    </changeSet>
+</databaseChangeLog>

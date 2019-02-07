@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-centre-composition-heading" jhiTranslate="sigecApp.centreComposition.home.createOrEditLabel">Create or edit a Centre Composition</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!centreComposition.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="centreComposition.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.centreComposition.libelleCentreComposition" for="field_libelleCentreComposition">Libelle Centre Composition</label>
+                    <input type="text" class="form-control" name="libelleCentreComposition" id="field_libelleCentreComposition"
+                        [(ngModel)]="centreComposition.libelleCentreComposition" required/>
+                    <div [hidden]="!(editForm.controls.libelleCentreComposition?.dirty && editForm.controls.libelleCentreComposition?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleCentreComposition?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.centreComposition.ceb" for="field_ceb">Ceb</label>
+                    <select class="form-control" id="field_ceb" name="ceb" [(ngModel)]="centreComposition.cebId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cebOption.id" *ngFor="let cebOption of cebs; trackBy: trackCebById">{{cebOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.centreComposition.zoneExamen" for="field_zoneExamen">Zone Examen</label>
+                    <select class="form-control" id="field_zoneExamen" name="zoneExamen" [(ngModel)]="centreComposition.zoneExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="zoneExamenOption.id" *ngFor="let zoneExamenOption of zoneexamen; trackBy: trackZoneExamenById">{{zoneExamenOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.centreComposition.typeCentreComposition" for="field_typeCentreComposition">Type Centre Composition</label>
+                    <select class="form-control" id="field_typeCentreComposition" name="typeCentreComposition" [(ngModel)]="centreComposition.typeCentreCompositionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeCentreCompositionOption.id" *ngFor="let typeCentreCompositionOption of typecentrecompositions; trackBy: trackTypeCentreCompositionById">{{typeCentreCompositionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

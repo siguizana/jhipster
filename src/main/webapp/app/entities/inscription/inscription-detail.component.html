@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inscription">
+            <h2><span jhiTranslate="sigecApp.inscription.detail.title">Inscription</span> {{inscription.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.inscription.numeroPV">Numero PV</span></dt>
+                <dd>
+                    <span>{{inscription.numeroPV}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.dateInscription">Date Inscription</span></dt>
+                <dd>
+                    <span>{{inscription.dateInscription}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.aptitude">Aptitude</span></dt>
+                <dd>
+                    <span>{{inscription.aptitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.residence">Residence</span></dt>
+                <dd>
+                    <span>{{inscription.residence}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.echelon">Echelon</span></dt>
+                <dd>
+                    <span>{{inscription.echelon}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.grade">Grade</span></dt>
+                <dd>
+                    <span>{{inscription.grade}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.dateDernierePromotion">Date Derniere Promotion</span></dt>
+                <dd>
+                    <span>{{inscription.dateDernierePromotion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.diplome">Diplome</span></dt>
+                <dd>
+                    <span>{{inscription.diplome}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.classeTenue">Classe Tenue</span></dt>
+                <dd>
+                    <span>{{inscription.classeTenue}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.nomPrenomPereOuTuteur">Nom Prenom Pere Ou Tuteur</span></dt>
+                <dd>
+                    <span>{{inscription.nomPrenomPereOuTuteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.nomPrenomMereOuTutrice">Nom Prenom Mere Ou Tutrice</span></dt>
+                <dd>
+                    <span>{{inscription.nomPrenomMereOuTutrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.adresseParentOuTiteur">Adresse Parent Ou Titeur</span></dt>
+                <dd>
+                    <span>{{inscription.adresseParentOuTiteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.participeConcoursRattache">Participe Concours Rattache</span></dt>
+                <dd>
+                    <span>{{inscription.participeConcoursRattache}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.villageSecteur">Village Secteur</span></dt>
+                <dd>
+                    <div *ngIf="inscription.villageSecteurId">
+                        <a [routerLink]="['/village-secteur', inscription.villageSecteurId, 'view']">{{inscription.villageSecteurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.etablissement">Etablissement</span></dt>
+                <dd>
+                    <div *ngIf="inscription.etablissementId">
+                        <a [routerLink]="['/etablissement', inscription.etablissementId, 'view']">{{inscription.etablissementId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.session">Session</span></dt>
+                <dd>
+                    <div *ngIf="inscription.sessionId">
+                        <a [routerLink]="['/session', inscription.sessionId, 'view']">{{inscription.sessionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.optionConcoursRattache">Option Concours Rattache</span></dt>
+                <dd>
+                    <div *ngIf="inscription.optionConcoursRattacheId">
+                        <a [routerLink]="['/option-concours-rattache', inscription.optionConcoursRattacheId, 'view']">{{inscription.optionConcoursRattacheId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.candidat">Candidat</span></dt>
+                <dd>
+                    <div *ngIf="inscription.candidatId">
+                        <a [routerLink]="['/candidat', inscription.candidatId, 'view']">{{inscription.candidatId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.typeExamen">Type Examen</span></dt>
+                <dd>
+                    <div *ngIf="inscription.typeExamenId">
+                        <a [routerLink]="['/type-examen', inscription.typeExamenId, 'view']">{{inscription.typeExamenId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.centreCompositioJury">Centre Compositio Jury</span></dt>
+                <dd>
+                    <div *ngIf="inscription.centreCompositioJuryId">
+                        <a [routerLink]="['/centre-compositio-jury', inscription.centreCompositioJuryId, 'view']">{{inscription.centreCompositioJuryId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.salleComposition">Salle Composition</span></dt>
+                <dd>
+                    <div *ngIf="inscription.salleCompositionId">
+                        <a [routerLink]="['/salle-composition', inscription.salleCompositionId, 'view']">{{inscription.salleCompositionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.inscription.jury">Jury</span></dt>
+                <dd>
+                    <div *ngIf="inscription.juryId">
+                        <a [routerLink]="['/jury', inscription.juryId, 'view']">{{inscription.juryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inscription', inscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

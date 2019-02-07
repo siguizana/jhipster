@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="choixEtablissement">
+            <h2><span jhiTranslate="sigecApp.choixEtablissement.detail.title">Choix Etablissement</span> {{choixEtablissement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.choixEtablissement.priorite">Priorite</span></dt>
+                <dd>
+                    <span>{{choixEtablissement.priorite}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.choixEtablissement.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="choixEtablissement.inscriptionId">
+                        <a [routerLink]="['/inscription', choixEtablissement.inscriptionId, 'view']">{{choixEtablissement.inscriptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.choixEtablissement.etablissement">Etablissement</span></dt>
+                <dd>
+                    <div *ngIf="choixEtablissement.etablissementId">
+                        <a [routerLink]="['/etablissement', choixEtablissement.etablissementId, 'view']">{{choixEtablissement.etablissementId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.choixEtablissement.specialiteOption">Specialite Option</span></dt>
+                <dd>
+                    <div *ngIf="choixEtablissement.specialiteOptionId">
+                        <a [routerLink]="['/specialite-option', choixEtablissement.specialiteOptionId, 'view']">{{choixEtablissement.specialiteOptionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/choix-etablissement', choixEtablissement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

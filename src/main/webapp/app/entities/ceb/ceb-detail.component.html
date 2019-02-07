@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ceb">
+            <h2><span jhiTranslate="sigecApp.ceb.detail.title">Ceb</span> {{ceb.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.ceb.codeCeb">Code Ceb</span></dt>
+                <dd>
+                    <span>{{ceb.codeCeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.ceb.libelleCeb">Libelle Ceb</span></dt>
+                <dd>
+                    <span>{{ceb.libelleCeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.ceb.typeCeb">Type Ceb</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sigecApp.TypeCeb.' + ceb.typeCeb}}">{{ceb.typeCeb}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.ceb.commune">Commune</span></dt>
+                <dd>
+                    <div *ngIf="ceb.communeId">
+                        <a [routerLink]="['/commune', ceb.communeId, 'view']">{{ceb.communeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ceb', ceb.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

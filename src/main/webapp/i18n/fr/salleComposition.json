@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "salleComposition": {
+            "home": {
+                "title": "SalleCompositions",
+                "createLabel": "Créer un nouveau Salle Composition",
+                "createOrEditLabel": "Créer ou éditer un Salle Composition"
+            },
+            "created": "Un nouveau Salle Composition a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Salle Composition avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Salle Composition avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Salle Composition {{ id }} ?"
+            },
+            "detail": {
+                "title": "Salle Composition"
+            },
+            "libelle": "Libelle",
+            "capaciteSalle": "Capacite Salle",
+            "surveille": "Surveille",
+            "inscription": "Inscription",
+            "centreCompositioJury": "Centre Compositio Jury"
+        }
+    }
+}

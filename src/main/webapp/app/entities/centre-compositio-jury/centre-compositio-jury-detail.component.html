@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="centreCompositioJury">
+            <h2><span jhiTranslate="sigecApp.centreCompositioJury.detail.title">Centre Compositio Jury</span> {{centreCompositioJury.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.centreCompositioJury.centreComposition">Centre Composition</span></dt>
+                <dd>
+                    <div *ngIf="centreCompositioJury.centreCompositionId">
+                        <a [routerLink]="['/centre-composition', centreCompositioJury.centreCompositionId, 'view']">{{centreCompositioJury.centreCompositionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.centreCompositioJury.jury">Jury</span></dt>
+                <dd>
+                    <div *ngIf="centreCompositioJury.juryId">
+                        <a [routerLink]="['/jury', centreCompositioJury.juryId, 'view']">{{centreCompositioJury.juryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/centre-compositio-jury', centreCompositioJury.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

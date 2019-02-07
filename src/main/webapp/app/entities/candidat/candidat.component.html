@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.candidat.home.title">Candidats</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-candidat" [routerLink]="['/candidat/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.candidat.home.createLabel">
+            Create new Candidat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="candidats">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeCandidat"><span jhiTranslate="sigecApp.candidat.codeCandidat">Code Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomCandidat"><span jhiTranslate="sigecApp.candidat.nomCandidat">Nom Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenomCandidat"><span jhiTranslate="sigecApp.candidat.prenomCandidat">Prenom Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateNaissance"><span jhiTranslate="sigecApp.candidat.dateNaissance">Date Naissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lieuNaissance"><span jhiTranslate="sigecApp.candidat.lieuNaissance">Lieu Naissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paysNaissance"><span jhiTranslate="sigecApp.candidat.paysNaissance">Pays Naissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sexe"><span jhiTranslate="sigecApp.candidat.sexe">Sexe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telephoneCandidat"><span jhiTranslate="sigecApp.candidat.telephoneCandidat">Telephone Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nationaliteCandidat"><span jhiTranslate="sigecApp.candidat.nationaliteCandidat">Nationalite Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="matriculeCandidat"><span jhiTranslate="sigecApp.candidat.matriculeCandidat">Matricule Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateEnregistrementCandidat"><span jhiTranslate="sigecApp.candidat.dateEnregistrementCandidat">Date Enregistrement Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateDebutCariereCandidat"><span jhiTranslate="sigecApp.candidat.dateDebutCariereCandidat">Date Debut Cariere Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let candidat of candidats ;trackBy: trackId">
+                <td><a [routerLink]="['/candidat', candidat.id, 'view' ]">{{candidat.id}}</a></td>
+                <td>{{candidat.codeCandidat}}</td>
+                <td>{{candidat.nomCandidat}}</td>
+                <td>{{candidat.prenomCandidat}}</td>
+                <td>{{candidat.dateNaissance | date:'mediumDate'}}</td>
+                <td>{{candidat.lieuNaissance}}</td>
+                <td>{{candidat.paysNaissance}}</td>
+                <td jhiTranslate="{{'sigecApp.Sexe.' + candidat.sexe}}">{{candidat.sexe}}</td>
+                <td>{{candidat.telephoneCandidat}}</td>
+                <td>{{candidat.nationaliteCandidat}}</td>
+                <td>{{candidat.matriculeCandidat}}</td>
+                <td>{{candidat.dateEnregistrementCandidat | date:'mediumDate'}}</td>
+                <td>{{candidat.dateDebutCariereCandidat | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/candidat', candidat.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/candidat', candidat.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'candidat', { outlets: { popup: candidat.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

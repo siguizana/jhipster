@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity MembreJury.
+    -->
+    <changeSet id="20190202012235-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="membre_jury_id"
+                                 baseTableName="membre_jury_fraude"
+                                 constraintName="fk_membre_jury_fraude_membre_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="membre_jury"/>
+        <addForeignKeyConstraint baseColumnNames="fraude_id"
+                                 baseTableName="membre_jury_fraude"
+                                 constraintName="fk_membre_jury_fraude_fraude_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fraude"/>
+        
+        <addForeignKeyConstraint baseColumnNames="membre_jury_id"
+                                 baseTableName="membre_jury_composition_copie"
+                                 constraintName="fk_membre_jury_composition_copie_membre_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="membre_jury"/>
+        <addForeignKeyConstraint baseColumnNames="composition_copie_id"
+                                 baseTableName="membre_jury_composition_copie"
+                                 constraintName="fk_membre_jury_composition_copie_composition_copie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="composition_copie"/>
+        
+        <addForeignKeyConstraint baseColumnNames="type_membre_jury_id"
+                                 baseTableName="membre_jury"
+                                 constraintName="fk_membre_jury_type_membre_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_membre_jury"/>
+
+    </changeSet>
+</databaseChangeLog>

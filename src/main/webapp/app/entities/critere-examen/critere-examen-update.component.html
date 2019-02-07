@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-critere-examen-heading" jhiTranslate="sigecApp.critereExamen.home.createOrEditLabel">Create or edit a Critere Examen</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!critereExamen.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="critereExamen.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.libelleCritereExamen" for="field_libelleCritereExamen">Libelle Critere Examen</label>
+                    <input type="text" class="form-control" name="libelleCritereExamen" id="field_libelleCritereExamen"
+                        [(ngModel)]="critereExamen.libelleCritereExamen" required/>
+                    <div [hidden]="!(editForm.controls.libelleCritereExamen?.dirty && editForm.controls.libelleCritereExamen?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleCritereExamen?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.valeur" for="field_valeur">Valeur</label>
+                    <input type="number" class="form-control" name="valeur" id="field_valeur"
+                        [(ngModel)]="critereExamen.valeur" required/>
+                    <div [hidden]="!(editForm.controls.valeur?.dirty && editForm.controls.valeur?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.valeur?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.valeur?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.region" for="field_region">Region</label>
+                    <select class="form-control" id="field_region" name="region" [(ngModel)]="critereExamen.regionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regionOption.id" *ngFor="let regionOption of regions; trackBy: trackRegionById">{{regionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.optionConcoursRattache" for="field_optionConcoursRattache">Option Concours Rattache</label>
+                    <select class="form-control" id="field_optionConcoursRattache" name="optionConcoursRattache" [(ngModel)]="critereExamen.optionConcoursRattacheId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="optionConcoursRattacheOption.id" *ngFor="let optionConcoursRattacheOption of optionconcoursrattaches; trackBy: trackOptionConcoursRattacheById">{{optionConcoursRattacheOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.session" for="field_session">Session</label>
+                    <select class="form-control" id="field_session" name="session" [(ngModel)]="critereExamen.sessionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sessionOption.id" *ngFor="let sessionOption of sessions; trackBy: trackSessionById">{{sessionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.typeExamen" for="field_typeExamen">Type Examen</label>
+                    <select class="form-control" id="field_typeExamen" name="typeExamen" [(ngModel)]="critereExamen.typeExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeExamenOption.id" *ngFor="let typeExamenOption of typeexamen; trackBy: trackTypeExamenById">{{typeExamenOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.critereExamen.typeCritere" for="field_typeCritere">Type Critere</label>
+                    <select class="form-control" id="field_typeCritere" name="typeCritere" [(ngModel)]="critereExamen.typeCritereId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeCritereOption.id" *ngFor="let typeCritereOption of typecriteres; trackBy: trackTypeCritereById">{{typeCritereOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

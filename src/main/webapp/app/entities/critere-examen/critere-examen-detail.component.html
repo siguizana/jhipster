@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="critereExamen">
+            <h2><span jhiTranslate="sigecApp.critereExamen.detail.title">Critere Examen</span> {{critereExamen.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.critereExamen.libelleCritereExamen">Libelle Critere Examen</span></dt>
+                <dd>
+                    <span>{{critereExamen.libelleCritereExamen}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.valeur">Valeur</span></dt>
+                <dd>
+                    <span>{{critereExamen.valeur}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="critereExamen.regionId">
+                        <a [routerLink]="['/region', critereExamen.regionId, 'view']">{{critereExamen.regionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.optionConcoursRattache">Option Concours Rattache</span></dt>
+                <dd>
+                    <div *ngIf="critereExamen.optionConcoursRattacheId">
+                        <a [routerLink]="['/option-concours-rattache', critereExamen.optionConcoursRattacheId, 'view']">{{critereExamen.optionConcoursRattacheId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.session">Session</span></dt>
+                <dd>
+                    <div *ngIf="critereExamen.sessionId">
+                        <a [routerLink]="['/session', critereExamen.sessionId, 'view']">{{critereExamen.sessionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.typeExamen">Type Examen</span></dt>
+                <dd>
+                    <div *ngIf="critereExamen.typeExamenId">
+                        <a [routerLink]="['/type-examen', critereExamen.typeExamenId, 'view']">{{critereExamen.typeExamenId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.critereExamen.typeCritere">Type Critere</span></dt>
+                <dd>
+                    <div *ngIf="critereExamen.typeCritereId">
+                        <a [routerLink]="['/type-critere', critereExamen.typeCritereId, 'view']">{{critereExamen.typeCritereId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/critere-examen', critereExamen.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

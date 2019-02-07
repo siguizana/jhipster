@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="retraitDiplome">
+            <h2><span jhiTranslate="sigecApp.retraitDiplome.detail.title">Retrait Diplome</span> {{retraitDiplome.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.retraitDiplome.dateRetrait">Date Retrait</span></dt>
+                <dd>
+                    <span>{{retraitDiplome.dateRetrait}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.retraitDiplome.resultat">Resultat</span></dt>
+                <dd>
+                    <div *ngIf="retraitDiplome.resultatId">
+                        <a [routerLink]="['/resultat', retraitDiplome.resultatId, 'view']">{{retraitDiplome.resultatId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.retraitDiplome.typeDiplome">Type Diplome</span></dt>
+                <dd>
+                    <div *ngIf="retraitDiplome.typeDiplomeId">
+                        <a [routerLink]="['/type-diplome', retraitDiplome.typeDiplomeId, 'view']">{{retraitDiplome.typeDiplomeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/retrait-diplome', retraitDiplome.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

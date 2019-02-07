@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.enseigne.home.title">Enseignes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-enseigne" [routerLink]="['/enseigne/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.enseigne.home.createLabel">
+            Create new Enseigne
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="enseignes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="classeEnseigne"><span jhiTranslate="sigecApp.enseigne.classeEnseigne">Classe Enseigne</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etablissementId"><span jhiTranslate="sigecApp.enseigne.etablissement">Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="enseignantId"><span jhiTranslate="sigecApp.enseigne.enseignant">Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sessionId"><span jhiTranslate="sigecApp.enseigne.session">Session</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let enseigne of enseignes ;trackBy: trackId">
+                <td><a [routerLink]="['/enseigne', enseigne.id, 'view' ]">{{enseigne.id}}</a></td>
+                <td>{{enseigne.classeEnseigne}}</td>
+                <td>
+                    <div *ngIf="enseigne.etablissementId">
+                        <a [routerLink]="['../etablissement', enseigne.etablissementId , 'view' ]" >{{enseigne.etablissementId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="enseigne.enseignantId">
+                        <a [routerLink]="['../enseignant', enseigne.enseignantId , 'view' ]" >{{enseigne.enseignantId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="enseigne.sessionId">
+                        <a [routerLink]="['../session', enseigne.sessionId , 'view' ]" >{{enseigne.sessionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/enseigne', enseigne.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/enseigne', enseigne.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'enseigne', { outlets: { popup: enseigne.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

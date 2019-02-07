@@ -1,0 +1,29 @@
+{
+    "name": "TypeDecision",
+    "fields": [
+        {
+            "fieldName": "libelleTypeDecision",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "resultat",
+            "otherEntityName": "resultat",
+            "otherEntityRelationshipName": "typeDecision"
+        }
+    ],
+    "changelogDate": "20190202012259",
+    "entityTableName": "type_decision",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,27 @@
+{
+    "sigecApp": {
+        "session": {
+            "home": {
+                "title": "Sessions",
+                "createLabel": "Créer un nouveau Session",
+                "createOrEditLabel": "Créer ou éditer un Session"
+            },
+            "created": "Un nouveau Session a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Session avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Session avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Session {{ id }} ?"
+            },
+            "detail": {
+                "title": "Session"
+            },
+            "libelle": "Libelle",
+            "dateOuverture": "Date Ouverture",
+            "dateFermeture": "Date Fermeture",
+            "anneeSession": "Annee Session",
+            "inscription": "Inscription",
+            "critereExamen": "Critere Examen",
+            "enseigne": "Enseigne"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "groupeEpreuve": {
+            "home": {
+                "title": "GroupeEpreuves",
+                "createLabel": "Créer un nouveau Groupe Epreuve",
+                "createOrEditLabel": "Créer ou éditer un Groupe Epreuve"
+            },
+            "created": "Un nouveau Groupe Epreuve a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Groupe Epreuve avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Groupe Epreuve avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Groupe Epreuve {{ id }} ?"
+            },
+            "detail": {
+                "title": "Groupe Epreuve"
+            },
+            "libelle": "Libelle",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option"
+        }
+    }
+}

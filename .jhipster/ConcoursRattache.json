@@ -1,0 +1,35 @@
+{
+    "name": "ConcoursRattache",
+    "fields": [
+        {
+            "fieldName": "libelleConcoursRattache",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "optionConcoursRattache",
+            "otherEntityName": "optionConcoursRattache",
+            "otherEntityRelationshipName": "concoursRattache"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeExamen",
+            "otherEntityName": "typeExamen",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012254",
+    "entityTableName": "concours_rattache",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

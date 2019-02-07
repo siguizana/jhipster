@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "dispense": {
+            "home": {
+                "title": "Dispenses",
+                "createLabel": "Créer un nouveau Dispense",
+                "createOrEditLabel": "Créer ou éditer un Dispense"
+            },
+            "created": "Un nouveau Dispense a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Dispense avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Dispense avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Dispense {{ id }} ?"
+            },
+            "detail": {
+                "title": "Dispense"
+            },
+            "motitDispense": "Motit Dispense",
+            "nomPrenomMedecin": "Nom Prenom Medecin",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option",
+            "inscription": "Inscription",
+            "handicape": "Handicape"
+        }
+    }
+}

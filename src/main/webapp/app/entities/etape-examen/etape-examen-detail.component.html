@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etapeExamen">
+            <h2><span jhiTranslate="sigecApp.etapeExamen.detail.title">Etape Examen</span> {{etapeExamen.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.etapeExamen.libelleEtapeExamen">Libelle Etape Examen</span></dt>
+                <dd>
+                    <span>{{etapeExamen.libelleEtapeExamen}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etapeExamen.typeExamen">Type Examen</span></dt>
+                <dd>
+                    <div *ngIf="etapeExamen.typeExamenId">
+                        <a [routerLink]="['/type-examen', etapeExamen.typeExamenId, 'view']">{{etapeExamen.typeExamenId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etape-examen', etapeExamen.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

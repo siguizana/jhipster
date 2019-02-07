@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.absence.home.title">Absences</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-absence" [routerLink]="['/absence/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.absence.home.createLabel">
+            Create new Absence
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="absences">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="motifAbsence"><span jhiTranslate="sigecApp.absence.motifAbsence">Motif Absence</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateAbsence"><span jhiTranslate="sigecApp.absence.dateAbsence">Date Absence</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inscriptionId"><span jhiTranslate="sigecApp.absence.inscription">Inscription</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveSpecialiteOptionId"><span jhiTranslate="sigecApp.absence.epreuveSpecialiteOption">Epreuve Specialite Option</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etapeExamenId"><span jhiTranslate="sigecApp.absence.etapeExamen">Etape Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let absence of absences ;trackBy: trackId">
+                <td><a [routerLink]="['/absence', absence.id, 'view' ]">{{absence.id}}</a></td>
+                <td>{{absence.motifAbsence}}</td>
+                <td>{{absence.dateAbsence | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="absence.inscriptionId">
+                        <a [routerLink]="['../inscription', absence.inscriptionId , 'view' ]" >{{absence.inscriptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="absence.epreuveSpecialiteOptionId">
+                        <a [routerLink]="['../epreuve-specialite-option', absence.epreuveSpecialiteOptionId , 'view' ]" >{{absence.epreuveSpecialiteOptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="absence.etapeExamenId">
+                        <a [routerLink]="['../etape-examen', absence.etapeExamenId , 'view' ]" >{{absence.etapeExamenId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/absence', absence.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/absence', absence.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'absence', { outlets: { popup: absence.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

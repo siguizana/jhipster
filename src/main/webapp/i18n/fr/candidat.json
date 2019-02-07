@@ -1,0 +1,34 @@
+{
+    "sigecApp": {
+        "candidat": {
+            "home": {
+                "title": "Candidats",
+                "createLabel": "Créer un nouveau Candidat",
+                "createOrEditLabel": "Créer ou éditer un Candidat"
+            },
+            "created": "Un nouveau Candidat a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Candidat avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Candidat avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Candidat {{ id }} ?"
+            },
+            "detail": {
+                "title": "Candidat"
+            },
+            "codeCandidat": "Code Candidat",
+            "nomCandidat": "Nom Candidat",
+            "prenomCandidat": "Prenom Candidat",
+            "dateNaissance": "Date Naissance",
+            "lieuNaissance": "Lieu Naissance",
+            "paysNaissance": "Pays Naissance",
+            "sexe": "Sexe",
+            "telephoneCandidat": "Telephone Candidat",
+            "nationaliteCandidat": "Nationalite Candidat",
+            "matriculeCandidat": "Matricule Candidat",
+            "dateEnregistrementCandidat": "Date Enregistrement Candidat",
+            "dateDebutCariereCandidat": "Date Debut Cariere Candidat",
+            "inscription": "Inscription",
+            "deroulementScolarite": "Deroulement Scolarite"
+        }
+    }
+}

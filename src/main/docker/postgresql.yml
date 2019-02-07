@@ -5,7 +5,7 @@ services:
         # volumes:
         #     - ~/volumes/jhipster/sigec/postgresql/:/var/lib/postgresql/data/
         environment:
-            - POSTGRES_USER=sigec
-            - POSTGRES_PASSWORD=
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=siguizana
         ports:
             - 5432:5432

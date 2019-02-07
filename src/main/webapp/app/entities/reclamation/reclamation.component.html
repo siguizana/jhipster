@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.reclamation.home.title">Reclamations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reclamation" [routerLink]="['/reclamation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.reclamation.home.createLabel">
+            Create new Reclamation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="reclamations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="motifReclamation"><span jhiTranslate="sigecApp.reclamation.motifReclamation">Motif Reclamation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateReclamation"><span jhiTranslate="sigecApp.reclamation.dateReclamation">Date Reclamation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noteReclamation"><span jhiTranslate="sigecApp.reclamation.noteReclamation">Note Reclamation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statutReclamation"><span jhiTranslate="sigecApp.reclamation.statutReclamation">Statut Reclamation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="compositionCopieId"><span jhiTranslate="sigecApp.reclamation.compositionCopie">Composition Copie</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let reclamation of reclamations ;trackBy: trackId">
+                <td><a [routerLink]="['/reclamation', reclamation.id, 'view' ]">{{reclamation.id}}</a></td>
+                <td>{{reclamation.motifReclamation}}</td>
+                <td>{{reclamation.dateReclamation | date:'mediumDate'}}</td>
+                <td>{{reclamation.noteReclamation}}</td>
+                <td>{{reclamation.statutReclamation}}</td>
+                <td>
+                    <div *ngIf="reclamation.compositionCopieId">
+                        <a [routerLink]="['../composition-copie', reclamation.compositionCopieId , 'view' ]" >{{reclamation.compositionCopieId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/reclamation', reclamation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/reclamation', reclamation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'reclamation', { outlets: { popup: reclamation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

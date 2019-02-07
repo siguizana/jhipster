@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-resultat-heading" jhiTranslate="sigecApp.resultat.home.createOrEditLabel">Create or edit a Resultat</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!resultat.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="resultat.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.notePondere" for="field_notePondere">Note Pondere</label>
+                    <input type="number" class="form-control" name="notePondere" id="field_notePondere"
+                        [(ngModel)]="resultat.notePondere" required/>
+                    <div [hidden]="!(editForm.controls.notePondere?.dirty && editForm.controls.notePondere?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.notePondere?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.notePondere?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.etapeExamen" for="field_etapeExamen">Etape Examen</label>
+                    <select class="form-control" id="field_etapeExamen" name="etapeExamen" [(ngModel)]="resultat.etapeExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etapeExamenOption.id" *ngFor="let etapeExamenOption of etapeexamen; trackBy: trackEtapeExamenById">{{etapeExamenOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.mention" for="field_mention">Mention</label>
+                    <select class="form-control" id="field_mention" name="mention" [(ngModel)]="resultat.mentionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mentionOption.id" *ngFor="let mentionOption of mentions; trackBy: trackMentionById">{{mentionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.typeDecision" for="field_typeDecision">Type Decision</label>
+                    <select class="form-control" id="field_typeDecision" name="typeDecision" [(ngModel)]="resultat.typeDecisionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeDecisionOption.id" *ngFor="let typeDecisionOption of typedecisions; trackBy: trackTypeDecisionById">{{typeDecisionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.optionConcoursRattache" for="field_optionConcoursRattache">Option Concours Rattache</label>
+                    <select class="form-control" id="field_optionConcoursRattache" name="optionConcoursRattache" [(ngModel)]="resultat.optionConcoursRattacheId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="optionConcoursRattacheOption.id" *ngFor="let optionConcoursRattacheOption of optionconcoursrattaches; trackBy: trackOptionConcoursRattacheById">{{optionConcoursRattacheOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.resultat.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="resultat.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

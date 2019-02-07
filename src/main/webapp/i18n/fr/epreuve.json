@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "epreuve": {
+            "home": {
+                "title": "Epreuves",
+                "createLabel": "Créer un nouveau Epreuve",
+                "createOrEditLabel": "Créer ou éditer un Epreuve"
+            },
+            "created": "Un nouveau Epreuve a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Epreuve avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Epreuve avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Epreuve {{ id }} ?"
+            },
+            "detail": {
+                "title": "Epreuve"
+            },
+            "libelle": "Libelle",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option",
+            "typeEpreuve": "Type Epreuve"
+        }
+    }
+}

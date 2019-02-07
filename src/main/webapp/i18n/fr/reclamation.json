@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "reclamation": {
+            "home": {
+                "title": "Reclamations",
+                "createLabel": "Créer un nouveau Reclamation",
+                "createOrEditLabel": "Créer ou éditer un Reclamation"
+            },
+            "created": "Un nouveau Reclamation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Reclamation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Reclamation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Reclamation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Reclamation"
+            },
+            "motifReclamation": "Motif Reclamation",
+            "dateReclamation": "Date Reclamation",
+            "noteReclamation": "Note Reclamation",
+            "statutReclamation": "Statut Reclamation",
+            "compositionCopie": "Composition Copie"
+        }
+    }
+}

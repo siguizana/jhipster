@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-etablissement-heading" jhiTranslate="sigecApp.etablissement.home.createOrEditLabel">Create or edit a Etablissement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!etablissement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="etablissement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.codeEtablissement" for="field_codeEtablissement">Code Etablissement</label>
+                    <input type="text" class="form-control" name="codeEtablissement" id="field_codeEtablissement"
+                        [(ngModel)]="etablissement.codeEtablissement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.libelleEtablissement" for="field_libelleEtablissement">Libelle Etablissement</label>
+                    <input type="text" class="form-control" name="libelleEtablissement" id="field_libelleEtablissement"
+                        [(ngModel)]="etablissement.libelleEtablissement" required/>
+                    <div [hidden]="!(editForm.controls.libelleEtablissement?.dirty && editForm.controls.libelleEtablissement?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleEtablissement?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.nomResponsableEtablissement" for="field_nomResponsableEtablissement">Nom Responsable Etablissement</label>
+                    <input type="text" class="form-control" name="nomResponsableEtablissement" id="field_nomResponsableEtablissement"
+                        [(ngModel)]="etablissement.nomResponsableEtablissement" required/>
+                    <div [hidden]="!(editForm.controls.nomResponsableEtablissement?.dirty && editForm.controls.nomResponsableEtablissement?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomResponsableEtablissement?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.prenomResponsableEtablissement" for="field_prenomResponsableEtablissement">Prenom Responsable Etablissement</label>
+                    <input type="text" class="form-control" name="prenomResponsableEtablissement" id="field_prenomResponsableEtablissement"
+                        [(ngModel)]="etablissement.prenomResponsableEtablissement" required/>
+                    <div [hidden]="!(editForm.controls.prenomResponsableEtablissement?.dirty && editForm.controls.prenomResponsableEtablissement?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenomResponsableEtablissement?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.contactactEtablissement" for="field_contactactEtablissement">Contactact Etablissement</label>
+                    <input type="text" class="form-control" name="contactactEtablissement" id="field_contactactEtablissement"
+                        [(ngModel)]="etablissement.contactactEtablissement" required/>
+                    <div [hidden]="!(editForm.controls.contactactEtablissement?.dirty && editForm.controls.contactactEtablissement?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.contactactEtablissement?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.ceb" for="field_ceb">Ceb</label>
+                    <select class="form-control" id="field_ceb" name="ceb" [(ngModel)]="etablissement.cebId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cebOption.id" *ngFor="let cebOption of cebs; trackBy: trackCebById">{{cebOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.typeEtablissement" for="field_typeEtablissement">Type Etablissement</label>
+                    <select class="form-control" id="field_typeEtablissement" name="typeEtablissement" [(ngModel)]="etablissement.typeEtablissementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeEtablissementOption.id" *ngFor="let typeEtablissementOption of typeetablissements; trackBy: trackTypeEtablissementById">{{typeEtablissementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.villageSecteur" for="field_villageSecteur">Village Secteur</label>
+                    <select class="form-control" id="field_villageSecteur" name="villageSecteur" [(ngModel)]="etablissement.villageSecteurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="villageSecteurOption.id" *ngFor="let villageSecteurOption of villagesecteurs; trackBy: trackVillageSecteurById">{{villageSecteurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.etablissement.centreComposition" for="field_centreComposition">Centre Composition</label>
+                    <select class="form-control" id="field_centreComposition" name="centreComposition" [(ngModel)]="etablissement.centreCompositionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="centreCompositionOption.id" *ngFor="let centreCompositionOption of centrecompositions; trackBy: trackCentreCompositionById">{{centreCompositionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

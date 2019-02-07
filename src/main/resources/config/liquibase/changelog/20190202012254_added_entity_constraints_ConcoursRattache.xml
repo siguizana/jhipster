@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ConcoursRattache.
+    -->
+    <changeSet id="20190202012254-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_examen_id"
+                                 baseTableName="concours_rattache"
+                                 constraintName="fk_concours_rattache_type_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_examen"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "typeCritere": {
+            "home": {
+                "title": "TypeCriteres",
+                "createLabel": "Créer un nouveau Type Critere",
+                "createOrEditLabel": "Créer ou éditer un Type Critere"
+            },
+            "created": "Un nouveau Type Critere a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Critere avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Critere avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Critere {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Critere"
+            },
+            "libelle": "Libelle",
+            "critereExamen": "Critere Examen"
+        }
+    }
+}

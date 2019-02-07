@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="candidat">
+            <h2><span jhiTranslate="sigecApp.candidat.detail.title">Candidat</span> {{candidat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.candidat.codeCandidat">Code Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.codeCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.nomCandidat">Nom Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.nomCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.prenomCandidat">Prenom Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.prenomCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{candidat.dateNaissance}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.lieuNaissance">Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{candidat.lieuNaissance}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.paysNaissance">Pays Naissance</span></dt>
+                <dd>
+                    <span>{{candidat.paysNaissance}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.sexe">Sexe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sigecApp.Sexe.' + candidat.sexe}}">{{candidat.sexe}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.telephoneCandidat">Telephone Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.telephoneCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.nationaliteCandidat">Nationalite Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.nationaliteCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.matriculeCandidat">Matricule Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.matriculeCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.dateEnregistrementCandidat">Date Enregistrement Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.dateEnregistrementCandidat}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.candidat.dateDebutCariereCandidat">Date Debut Cariere Candidat</span></dt>
+                <dd>
+                    <span>{{candidat.dateDebutCariereCandidat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/candidat', candidat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

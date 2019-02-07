@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "specialiteOption": {
+            "home": {
+                "title": "SpecialiteOptions",
+                "createLabel": "Créer un nouveau Specialite Option",
+                "createOrEditLabel": "Créer ou éditer un Specialite Option"
+            },
+            "created": "Un nouveau Specialite Option a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Specialite Option avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Specialite Option avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Specialite Option {{ id }} ?"
+            },
+            "detail": {
+                "title": "Specialite Option"
+            },
+            "libelle": "Libelle",
+            "choixEtablissement": "Choix Etablissement",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option",
+            "typeExamen": "Type Examen",
+            "filiere": "Filiere"
+        }
+    }
+}

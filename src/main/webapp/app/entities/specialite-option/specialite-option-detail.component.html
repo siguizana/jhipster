@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specialiteOption">
+            <h2><span jhiTranslate="sigecApp.specialiteOption.detail.title">Specialite Option</span> {{specialiteOption.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.specialiteOption.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{specialiteOption.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.specialiteOption.typeExamen">Type Examen</span></dt>
+                <dd>
+                    <div *ngIf="specialiteOption.typeExamenId">
+                        <a [routerLink]="['/type-examen', specialiteOption.typeExamenId, 'view']">{{specialiteOption.typeExamenId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.specialiteOption.filiere">Filiere</span></dt>
+                <dd>
+                    <div *ngIf="specialiteOption.filiereId">
+                        <a [routerLink]="['/filiere', specialiteOption.filiereId, 'view']">{{specialiteOption.filiereId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/specialite-option', specialiteOption.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

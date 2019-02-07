@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.enseignant.home.title">Enseignants</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-enseignant" [routerLink]="['/enseignant/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.enseignant.home.createLabel">
+            Create new Enseignant
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="enseignants">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="matricule"><span jhiTranslate="sigecApp.enseignant.matricule">Matricule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomEnseignant"><span jhiTranslate="sigecApp.enseignant.nomEnseignant">Nom Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenomEnseignant"><span jhiTranslate="sigecApp.enseignant.prenomEnseignant">Prenom Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactEnseignant"><span jhiTranslate="sigecApp.enseignant.contactEnseignant">Contact Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gradeEnseignant"><span jhiTranslate="sigecApp.enseignant.gradeEnseignant">Grade Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="echelonEnseignant"><span jhiTranslate="sigecApp.enseignant.echelonEnseignant">Echelon Enseignant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let enseignant of enseignants ;trackBy: trackId">
+                <td><a [routerLink]="['/enseignant', enseignant.id, 'view' ]">{{enseignant.id}}</a></td>
+                <td>{{enseignant.matricule}}</td>
+                <td>{{enseignant.nomEnseignant}}</td>
+                <td>{{enseignant.prenomEnseignant}}</td>
+                <td>{{enseignant.contactEnseignant}}</td>
+                <td>{{enseignant.gradeEnseignant}}</td>
+                <td>{{enseignant.echelonEnseignant}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/enseignant', enseignant.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/enseignant', enseignant.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'enseignant', { outlets: { popup: enseignant.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

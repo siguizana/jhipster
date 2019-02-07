@@ -1,0 +1,37 @@
+{
+    "name": "TypeMembreJury",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "membreJury",
+            "otherEntityName": "membreJury",
+            "otherEntityRelationshipName": "typeMembreJury"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "typeMembreJury",
+            "relationshipName": "critereChoixMembreJury",
+            "otherEntityName": "critereChoixMembreJury",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190202012237",
+    "entityTableName": "type_membre_jury",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

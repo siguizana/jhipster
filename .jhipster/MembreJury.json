@@ -1,0 +1,81 @@
+{
+    "name": "MembreJury",
+    "fields": [
+        {
+            "fieldName": "nomMembre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenomMembre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCNIB",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "matricule",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "surveille",
+            "otherEntityName": "surveille",
+            "otherEntityRelationshipName": "membreJury"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "noteMembreCritere",
+            "otherEntityName": "noteMembreCritere",
+            "otherEntityRelationshipName": "membreJury"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "membreJuryJury",
+            "otherEntityName": "membreJuryJury",
+            "otherEntityRelationshipName": "membreJury"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "membreJury",
+            "relationshipName": "fraude",
+            "otherEntityName": "fraude",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "membreJury",
+            "relationshipName": "compositionCopie",
+            "otherEntityName": "compositionCopie",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeMembreJury",
+            "otherEntityName": "typeMembreJury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012235",
+    "entityTableName": "membre_jury",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

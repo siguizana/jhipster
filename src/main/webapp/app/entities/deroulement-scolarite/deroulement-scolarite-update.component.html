@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-deroulement-scolarite-heading" jhiTranslate="sigecApp.deroulementScolarite.home.createOrEditLabel">Create or edit a Deroulement Scolarite</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!deroulementScolarite.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="deroulementScolarite.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.deroulementScolarite.anneScolarite" for="field_anneScolarite">Anne Scolarite</label>
+                    <input type="text" class="form-control" name="anneScolarite" id="field_anneScolarite"
+                        [(ngModel)]="deroulementScolarite.anneScolarite" required/>
+                    <div [hidden]="!(editForm.controls.anneScolarite?.dirty && editForm.controls.anneScolarite?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.anneScolarite?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.deroulementScolarite.classe" for="field_classe">Classe</label>
+                    <input type="text" class="form-control" name="classe" id="field_classe"
+                        [(ngModel)]="deroulementScolarite.classe" required/>
+                    <div [hidden]="!(editForm.controls.classe?.dirty && editForm.controls.classe?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.classe?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.deroulementScolarite.candidat" for="field_candidat">Candidat</label>
+                    <select class="form-control" id="field_candidat" name="candidat" [(ngModel)]="deroulementScolarite.candidatId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="candidatOption.id" *ngFor="let candidatOption of candidats; trackBy: trackCandidatById">{{candidatOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

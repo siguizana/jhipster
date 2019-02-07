@@ -1,0 +1,45 @@
+{
+    "name": "SalleComposition",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "capaciteSalle",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "surveille",
+            "otherEntityName": "surveille",
+            "otherEntityRelationshipName": "salleComposition"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "salleComposition"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "centreCompositioJury",
+            "otherEntityName": "centreCompositioJury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012305",
+    "entityTableName": "salle_composition",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

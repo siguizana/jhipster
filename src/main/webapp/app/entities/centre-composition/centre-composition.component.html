@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.centreComposition.home.title">Centre Compositions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-centre-composition" [routerLink]="['/centre-composition/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.centreComposition.home.createLabel">
+            Create new Centre Composition
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="centreCompositions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleCentreComposition"><span jhiTranslate="sigecApp.centreComposition.libelleCentreComposition">Libelle Centre Composition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cebId"><span jhiTranslate="sigecApp.centreComposition.ceb">Ceb</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="zoneExamenId"><span jhiTranslate="sigecApp.centreComposition.zoneExamen">Zone Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeCentreCompositionId"><span jhiTranslate="sigecApp.centreComposition.typeCentreComposition">Type Centre Composition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let centreComposition of centreCompositions ;trackBy: trackId">
+                <td><a [routerLink]="['/centre-composition', centreComposition.id, 'view' ]">{{centreComposition.id}}</a></td>
+                <td>{{centreComposition.libelleCentreComposition}}</td>
+                <td>
+                    <div *ngIf="centreComposition.cebId">
+                        <a [routerLink]="['../ceb', centreComposition.cebId , 'view' ]" >{{centreComposition.cebId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="centreComposition.zoneExamenId">
+                        <a [routerLink]="['../zone-examen', centreComposition.zoneExamenId , 'view' ]" >{{centreComposition.zoneExamenId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="centreComposition.typeCentreCompositionId">
+                        <a [routerLink]="['../type-centre-composition', centreComposition.typeCentreCompositionId , 'view' ]" >{{centreComposition.typeCentreCompositionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/centre-composition', centreComposition.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/centre-composition', centreComposition.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'centre-composition', { outlets: { popup: centreComposition.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

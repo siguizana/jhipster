@@ -1,0 +1,45 @@
+{
+    "name": "Region",
+    "fields": [
+        {
+            "fieldName": "codeRegion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleRegion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "province",
+            "otherEntityName": "province",
+            "otherEntityRelationshipName": "region"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "critereExamen",
+            "otherEntityName": "critereExamen",
+            "otherEntityRelationshipName": "region"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "centreExamen",
+            "otherEntityName": "centreExamen",
+            "otherEntityRelationshipName": "region"
+        }
+    ],
+    "changelogDate": "20190202012311",
+    "entityTableName": "region",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "pieceAConviction": {
+            "home": {
+                "title": "PieceAConvictions",
+                "createLabel": "Créer un nouveau Piece A Conviction",
+                "createOrEditLabel": "Créer ou éditer un Piece A Conviction"
+            },
+            "created": "Un nouveau Piece A Conviction a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Piece A Conviction avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Piece A Conviction avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Piece A Conviction {{ id }} ?"
+            },
+            "detail": {
+                "title": "Piece A Conviction"
+            },
+            "libellePieceAconviction": "Libelle Piece Aconviction",
+            "fraude": "Fraude"
+        }
+    }
+}

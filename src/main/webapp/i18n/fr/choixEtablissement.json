@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "choixEtablissement": {
+            "home": {
+                "title": "ChoixEtablissements",
+                "createLabel": "Créer un nouveau Choix Etablissement",
+                "createOrEditLabel": "Créer ou éditer un Choix Etablissement"
+            },
+            "created": "Un nouveau Choix Etablissement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Choix Etablissement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Choix Etablissement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Choix Etablissement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Choix Etablissement"
+            },
+            "priorite": "Priorite",
+            "inscription": "Inscription",
+            "etablissement": "Etablissement",
+            "specialiteOption": "Specialite Option"
+        }
+    }
+}

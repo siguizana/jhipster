@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Surveille.
+    -->
+    <changeSet id="20190202012240-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="membre_jury_id"
+                                 baseTableName="surveille"
+                                 constraintName="fk_surveille_membre_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="membre_jury"/>
+
+        <addForeignKeyConstraint baseColumnNames="salle_composition_id"
+                                 baseTableName="surveille"
+                                 constraintName="fk_surveille_salle_composition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="salle_composition"/>
+
+    </changeSet>
+</databaseChangeLog>

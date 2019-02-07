@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CompositionCopie.
+    -->
+    <changeSet id="20190202012234-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="composition_copie"
+                                 constraintName="fk_composition_copie_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+        <addForeignKeyConstraint baseColumnNames="epreuve_specialite_option_id"
+                                 baseTableName="composition_copie"
+                                 constraintName="fk_composition_copie_epreuve_specialite_option_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="epreuve_specialite_option"/>
+
+        <addForeignKeyConstraint baseColumnNames="etape_examen_id"
+                                 baseTableName="composition_copie"
+                                 constraintName="fk_composition_copie_etape_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etape_examen"/>
+
+    </changeSet>
+</databaseChangeLog>

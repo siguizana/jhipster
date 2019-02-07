@@ -1,0 +1,32 @@
+{
+    "sigecApp": {
+        "etablissement": {
+            "home": {
+                "title": "Etablissements",
+                "createLabel": "Créer un nouveau Etablissement",
+                "createOrEditLabel": "Créer ou éditer un Etablissement"
+            },
+            "created": "Un nouveau Etablissement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Etablissement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Etablissement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Etablissement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Etablissement"
+            },
+            "codeEtablissement": "Code Etablissement",
+            "libelleEtablissement": "Libelle Etablissement",
+            "nomResponsableEtablissement": "Nom Responsable Etablissement",
+            "prenomResponsableEtablissement": "Prenom Responsable Etablissement",
+            "contactactEtablissement": "Contactact Etablissement",
+            "enseigne": "Enseigne",
+            "inscription": "Inscription",
+            "choixEtablissement": "Choix Etablissement",
+            "ceb": "Ceb",
+            "typeEtablissement": "Type Etablissement",
+            "villageSecteur": "Village Secteur",
+            "centreComposition": "Centre Composition"
+        }
+    }
+}

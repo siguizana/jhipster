@@ -1,0 +1,56 @@
+{
+    "name": "Ceb",
+    "fields": [
+        {
+            "fieldName": "codeCeb",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "libelleCeb",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeCeb",
+            "fieldType": "TypeCeb",
+            "fieldValues": "CEBREFORME,CEBNONREFORME",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityRelationshipName": "ceb"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "centreComposition",
+            "otherEntityName": "centreComposition",
+            "otherEntityRelationshipName": "ceb"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "commune",
+            "otherEntityName": "commune",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012308",
+    "entityTableName": "ceb",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

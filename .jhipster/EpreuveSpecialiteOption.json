@@ -1,0 +1,82 @@
+{
+    "name": "EpreuveSpecialiteOption",
+    "fields": [
+        {
+            "fieldName": "epreuveRachat",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "epreuveAdmissibilite",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "epreuveFacultative",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "noteEliminatoire",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "coefficient",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "compositionCopie",
+            "otherEntityName": "compositionCopie",
+            "otherEntityRelationshipName": "epreuveSpecialiteOption"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "absence",
+            "otherEntityName": "absence",
+            "otherEntityRelationshipName": "epreuveSpecialiteOption"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "epreuve",
+            "otherEntityName": "epreuve",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "specialiteOption",
+            "otherEntityName": "specialiteOption",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "groupeEpreuve",
+            "otherEntityName": "groupeEpreuve",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "dispense",
+            "otherEntityName": "dispense",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "epreuveSpecialiteOption"
+        }
+    ],
+    "changelogDate": "20190202012232",
+    "entityTableName": "epreuve_specialite_option",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

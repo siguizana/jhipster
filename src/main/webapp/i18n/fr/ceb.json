@@ -1,0 +1,26 @@
+{
+    "sigecApp": {
+        "ceb": {
+            "home": {
+                "title": "Cebs",
+                "createLabel": "Créer un nouveau Ceb",
+                "createOrEditLabel": "Créer ou éditer un Ceb"
+            },
+            "created": "Un nouveau Ceb a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ceb avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ceb avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ceb {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ceb"
+            },
+            "codeCeb": "Code Ceb",
+            "libelleCeb": "Libelle Ceb",
+            "typeCeb": "Type Ceb",
+            "etablissement": "Etablissement",
+            "centreComposition": "Centre Composition",
+            "commune": "Commune"
+        }
+    }
+}

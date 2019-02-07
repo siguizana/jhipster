@@ -1,0 +1,49 @@
+{
+    "sigecApp": {
+        "inscription": {
+            "home": {
+                "title": "Inscriptions",
+                "createLabel": "Créer un nouveau Inscription",
+                "createOrEditLabel": "Créer ou éditer un Inscription"
+            },
+            "created": "Un nouveau Inscription a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Inscription avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Inscription avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Inscription {{ id }} ?"
+            },
+            "detail": {
+                "title": "Inscription"
+            },
+            "numeroPV": "Numero PV",
+            "dateInscription": "Date Inscription",
+            "aptitude": "Aptitude",
+            "residence": "Residence",
+            "echelon": "Echelon",
+            "grade": "Grade",
+            "dateDernierePromotion": "Date Derniere Promotion",
+            "diplome": "Diplome",
+            "classeTenue": "Classe Tenue",
+            "nomPrenomPereOuTuteur": "Nom Prenom Pere Ou Tuteur",
+            "nomPrenomMereOuTutrice": "Nom Prenom Mere Ou Tutrice",
+            "adresseParentOuTiteur": "Adresse Parent Ou Titeur",
+            "participeConcoursRattache": "Participe Concours Rattache",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option",
+            "choixEtablissement": "Choix Etablissement",
+            "compositionCopie": "Composition Copie",
+            "absence": "Absence",
+            "resultat": "Resultat",
+            "dispense": "Dispense",
+            "fraude": "Fraude",
+            "villageSecteur": "Village Secteur",
+            "etablissement": "Etablissement",
+            "session": "Session",
+            "optionConcoursRattache": "Option Concours Rattache",
+            "candidat": "Candidat",
+            "typeExamen": "Type Examen",
+            "centreCompositioJury": "Centre Compositio Jury",
+            "salleComposition": "Salle Composition",
+            "jury": "Jury"
+        }
+    }
+}

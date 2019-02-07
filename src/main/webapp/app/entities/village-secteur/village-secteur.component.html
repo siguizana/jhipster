@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.villageSecteur.home.title">Village Secteurs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-village-secteur" [routerLink]="['/village-secteur/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.villageSecteur.home.createLabel">
+            Create new Village Secteur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="villageSecteurs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeVillageSecteur"><span jhiTranslate="sigecApp.villageSecteur.codeVillageSecteur">Code Village Secteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleVillageSecteur"><span jhiTranslate="sigecApp.villageSecteur.libelleVillageSecteur">Libelle Village Secteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="communeId"><span jhiTranslate="sigecApp.villageSecteur.commune">Commune</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let villageSecteur of villageSecteurs ;trackBy: trackId">
+                <td><a [routerLink]="['/village-secteur', villageSecteur.id, 'view' ]">{{villageSecteur.id}}</a></td>
+                <td>{{villageSecteur.codeVillageSecteur}}</td>
+                <td>{{villageSecteur.libelleVillageSecteur}}</td>
+                <td>
+                    <div *ngIf="villageSecteur.communeId">
+                        <a [routerLink]="['../commune', villageSecteur.communeId , 'view' ]" >{{villageSecteur.communeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/village-secteur', villageSecteur.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/village-secteur', villageSecteur.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'village-secteur', { outlets: { popup: villageSecteur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

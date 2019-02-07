@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.epreuveSpecialiteOption.home.title">Epreuve Specialite Options</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-epreuve-specialite-option" [routerLink]="['/epreuve-specialite-option/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.epreuveSpecialiteOption.home.createLabel">
+            Create new Epreuve Specialite Option
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="epreuveSpecialiteOptions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveRachat"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveRachat">Epreuve Rachat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveAdmissibilite"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveAdmissibilite">Epreuve Admissibilite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveFacultative"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuveFacultative">Epreuve Facultative</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noteEliminatoire"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.noteEliminatoire">Note Eliminatoire</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="coefficient"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.coefficient">Coefficient</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inscriptionId"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.inscription">Inscription</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveId"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.epreuve">Epreuve</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="specialiteOptionId"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.specialiteOption">Specialite Option</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="groupeEpreuveId"><span jhiTranslate="sigecApp.epreuveSpecialiteOption.groupeEpreuve">Groupe Epreuve</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let epreuveSpecialiteOption of epreuveSpecialiteOptions ;trackBy: trackId">
+                <td><a [routerLink]="['/epreuve-specialite-option', epreuveSpecialiteOption.id, 'view' ]">{{epreuveSpecialiteOption.id}}</a></td>
+                <td>{{epreuveSpecialiteOption.epreuveRachat}}</td>
+                <td>{{epreuveSpecialiteOption.epreuveAdmissibilite}}</td>
+                <td>{{epreuveSpecialiteOption.epreuveFacultative}}</td>
+                <td>{{epreuveSpecialiteOption.noteEliminatoire}}</td>
+                <td>{{epreuveSpecialiteOption.coefficient}}</td>
+                <td>
+                    <div *ngIf="epreuveSpecialiteOption.inscriptionId">
+                        <a [routerLink]="['../inscription', epreuveSpecialiteOption.inscriptionId , 'view' ]" >{{epreuveSpecialiteOption.inscriptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="epreuveSpecialiteOption.epreuveId">
+                        <a [routerLink]="['../epreuve', epreuveSpecialiteOption.epreuveId , 'view' ]" >{{epreuveSpecialiteOption.epreuveId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="epreuveSpecialiteOption.specialiteOptionId">
+                        <a [routerLink]="['../specialite-option', epreuveSpecialiteOption.specialiteOptionId , 'view' ]" >{{epreuveSpecialiteOption.specialiteOptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="epreuveSpecialiteOption.groupeEpreuveId">
+                        <a [routerLink]="['../groupe-epreuve', epreuveSpecialiteOption.groupeEpreuveId , 'view' ]" >{{epreuveSpecialiteOption.groupeEpreuveId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/epreuve-specialite-option', epreuveSpecialiteOption.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/epreuve-specialite-option', epreuveSpecialiteOption.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'epreuve-specialite-option', { outlets: { popup: epreuveSpecialiteOption.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+    "name": "Commune",
+    "fields": [
+        {
+            "fieldName": "codeCommune",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleCommune",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeCommune",
+            "fieldType": "TypeCommune",
+            "fieldValues": "RURALE,URBAINE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "villageSecteur",
+            "otherEntityName": "villageSecteur",
+            "otherEntityRelationshipName": "commune"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ceb",
+            "otherEntityName": "ceb",
+            "otherEntityRelationshipName": "commune"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "province",
+            "otherEntityName": "province",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012309",
+    "entityTableName": "commune",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.resultat.home.title">Resultats</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resultat" [routerLink]="['/resultat/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.resultat.home.createLabel">
+            Create new Resultat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="resultats">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="notePondere"><span jhiTranslate="sigecApp.resultat.notePondere">Note Pondere</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etapeExamenId"><span jhiTranslate="sigecApp.resultat.etapeExamen">Etape Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mentionId"><span jhiTranslate="sigecApp.resultat.mention">Mention</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeDecisionId"><span jhiTranslate="sigecApp.resultat.typeDecision">Type Decision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="optionConcoursRattacheId"><span jhiTranslate="sigecApp.resultat.optionConcoursRattache">Option Concours Rattache</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inscriptionId"><span jhiTranslate="sigecApp.resultat.inscription">Inscription</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let resultat of resultats ;trackBy: trackId">
+                <td><a [routerLink]="['/resultat', resultat.id, 'view' ]">{{resultat.id}}</a></td>
+                <td>{{resultat.notePondere}}</td>
+                <td>
+                    <div *ngIf="resultat.etapeExamenId">
+                        <a [routerLink]="['../etape-examen', resultat.etapeExamenId , 'view' ]" >{{resultat.etapeExamenId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="resultat.mentionId">
+                        <a [routerLink]="['../mention', resultat.mentionId , 'view' ]" >{{resultat.mentionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="resultat.typeDecisionId">
+                        <a [routerLink]="['../type-decision', resultat.typeDecisionId , 'view' ]" >{{resultat.typeDecisionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="resultat.optionConcoursRattacheId">
+                        <a [routerLink]="['../option-concours-rattache', resultat.optionConcoursRattacheId , 'view' ]" >{{resultat.optionConcoursRattacheId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="resultat.inscriptionId">
+                        <a [routerLink]="['../inscription', resultat.inscriptionId , 'view' ]" >{{resultat.inscriptionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/resultat', resultat.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/resultat', resultat.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'resultat', { outlets: { popup: resultat.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

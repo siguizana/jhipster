@@ -1,0 +1,54 @@
+{
+    "name": "Fraude",
+    "fields": [
+        {
+            "fieldName": "libelleFraude",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sanction",
+            "otherEntityName": "sanction",
+            "otherEntityRelationshipName": "fraude"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pieceAConviction",
+            "otherEntityName": "pieceAConviction",
+            "otherEntityRelationshipName": "fraude"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeFraude",
+            "otherEntityName": "typeFraude",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "membreJury",
+            "otherEntityName": "membreJury",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fraude"
+        }
+    ],
+    "changelogDate": "20190202012242",
+    "entityTableName": "fraude",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

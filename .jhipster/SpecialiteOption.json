@@ -1,0 +1,47 @@
+{
+    "name": "SpecialiteOption",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "choixEtablissement",
+            "otherEntityName": "choixEtablissement",
+            "otherEntityRelationshipName": "specialiteOption"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "epreuveSpecialiteOption",
+            "otherEntityName": "epreuveSpecialiteOption",
+            "otherEntityRelationshipName": "specialiteOption"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeExamen",
+            "otherEntityName": "typeExamen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "filiere",
+            "otherEntityName": "filiere",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012226",
+    "entityTableName": "specialite_option",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

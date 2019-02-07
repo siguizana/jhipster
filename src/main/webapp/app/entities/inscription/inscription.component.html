@@ -1,0 +1,132 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.inscription.home.title">Inscriptions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inscription" [routerLink]="['/inscription/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.inscription.home.createLabel">
+            Create new Inscription
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="inscriptions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroPV"><span jhiTranslate="sigecApp.inscription.numeroPV">Numero PV</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateInscription"><span jhiTranslate="sigecApp.inscription.dateInscription">Date Inscription</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="aptitude"><span jhiTranslate="sigecApp.inscription.aptitude">Aptitude</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="residence"><span jhiTranslate="sigecApp.inscription.residence">Residence</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="echelon"><span jhiTranslate="sigecApp.inscription.echelon">Echelon</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grade"><span jhiTranslate="sigecApp.inscription.grade">Grade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateDernierePromotion"><span jhiTranslate="sigecApp.inscription.dateDernierePromotion">Date Derniere Promotion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diplome"><span jhiTranslate="sigecApp.inscription.diplome">Diplome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="classeTenue"><span jhiTranslate="sigecApp.inscription.classeTenue">Classe Tenue</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomPrenomPereOuTuteur"><span jhiTranslate="sigecApp.inscription.nomPrenomPereOuTuteur">Nom Prenom Pere Ou Tuteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomPrenomMereOuTutrice"><span jhiTranslate="sigecApp.inscription.nomPrenomMereOuTutrice">Nom Prenom Mere Ou Tutrice</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adresseParentOuTiteur"><span jhiTranslate="sigecApp.inscription.adresseParentOuTiteur">Adresse Parent Ou Titeur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="participeConcoursRattache"><span jhiTranslate="sigecApp.inscription.participeConcoursRattache">Participe Concours Rattache</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="villageSecteurId"><span jhiTranslate="sigecApp.inscription.villageSecteur">Village Secteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etablissementId"><span jhiTranslate="sigecApp.inscription.etablissement">Etablissement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sessionId"><span jhiTranslate="sigecApp.inscription.session">Session</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="optionConcoursRattacheId"><span jhiTranslate="sigecApp.inscription.optionConcoursRattache">Option Concours Rattache</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="candidatId"><span jhiTranslate="sigecApp.inscription.candidat">Candidat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeExamenId"><span jhiTranslate="sigecApp.inscription.typeExamen">Type Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="centreCompositioJuryId"><span jhiTranslate="sigecApp.inscription.centreCompositioJury">Centre Compositio Jury</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="salleCompositionId"><span jhiTranslate="sigecApp.inscription.salleComposition">Salle Composition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="juryId"><span jhiTranslate="sigecApp.inscription.jury">Jury</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let inscription of inscriptions ;trackBy: trackId">
+                <td><a [routerLink]="['/inscription', inscription.id, 'view' ]">{{inscription.id}}</a></td>
+                <td>{{inscription.numeroPV}}</td>
+                <td>{{inscription.dateInscription | date:'mediumDate'}}</td>
+                <td>{{inscription.aptitude}}</td>
+                <td>{{inscription.residence}}</td>
+                <td>{{inscription.echelon}}</td>
+                <td>{{inscription.grade}}</td>
+                <td>{{inscription.dateDernierePromotion | date:'mediumDate'}}</td>
+                <td>{{inscription.diplome}}</td>
+                <td>{{inscription.classeTenue}}</td>
+                <td>{{inscription.nomPrenomPereOuTuteur}}</td>
+                <td>{{inscription.nomPrenomMereOuTutrice}}</td>
+                <td>{{inscription.adresseParentOuTiteur}}</td>
+                <td>{{inscription.participeConcoursRattache}}</td>
+                <td>
+                    <div *ngIf="inscription.villageSecteurId">
+                        <a [routerLink]="['../village-secteur', inscription.villageSecteurId , 'view' ]" >{{inscription.villageSecteurId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.etablissementId">
+                        <a [routerLink]="['../etablissement', inscription.etablissementId , 'view' ]" >{{inscription.etablissementId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.sessionId">
+                        <a [routerLink]="['../session', inscription.sessionId , 'view' ]" >{{inscription.sessionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.optionConcoursRattacheId">
+                        <a [routerLink]="['../option-concours-rattache', inscription.optionConcoursRattacheId , 'view' ]" >{{inscription.optionConcoursRattacheId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.candidatId">
+                        <a [routerLink]="['../candidat', inscription.candidatId , 'view' ]" >{{inscription.candidatId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.typeExamenId">
+                        <a [routerLink]="['../type-examen', inscription.typeExamenId , 'view' ]" >{{inscription.typeExamenId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.centreCompositioJuryId">
+                        <a [routerLink]="['../centre-compositio-jury', inscription.centreCompositioJuryId , 'view' ]" >{{inscription.centreCompositioJuryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.salleCompositionId">
+                        <a [routerLink]="['../salle-composition', inscription.salleCompositionId , 'view' ]" >{{inscription.salleCompositionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inscription.juryId">
+                        <a [routerLink]="['../jury', inscription.juryId , 'view' ]" >{{inscription.juryId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/inscription', inscription.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inscription', inscription.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'inscription', { outlets: { popup: inscription.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

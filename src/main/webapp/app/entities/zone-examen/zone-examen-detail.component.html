@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="zoneExamen">
+            <h2><span jhiTranslate="sigecApp.zoneExamen.detail.title">Zone Examen</span> {{zoneExamen.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.zoneExamen.codeZoneExamen">Code Zone Examen</span></dt>
+                <dd>
+                    <span>{{zoneExamen.codeZoneExamen}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.zoneExamen.libelleZoneExamen">Libelle Zone Examen</span></dt>
+                <dd>
+                    <span>{{zoneExamen.libelleZoneExamen}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.zoneExamen.centreExamen">Centre Examen</span></dt>
+                <dd>
+                    <div *ngIf="zoneExamen.centreExamenId">
+                        <a [routerLink]="['/centre-examen', zoneExamen.centreExamenId, 'view']">{{zoneExamen.centreExamenId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/zone-examen', zoneExamen.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

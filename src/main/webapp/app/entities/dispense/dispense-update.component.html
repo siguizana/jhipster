@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dispense-heading" jhiTranslate="sigecApp.dispense.home.createOrEditLabel">Create or edit a Dispense</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dispense.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="dispense.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.dispense.motitDispense" for="field_motitDispense">Motit Dispense</label>
+                    <input type="text" class="form-control" name="motitDispense" id="field_motitDispense"
+                        [(ngModel)]="dispense.motitDispense" required/>
+                    <div [hidden]="!(editForm.controls.motitDispense?.dirty && editForm.controls.motitDispense?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motitDispense?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.dispense.nomPrenomMedecin" for="field_nomPrenomMedecin">Nom Prenom Medecin</label>
+                    <input type="text" class="form-control" name="nomPrenomMedecin" id="field_nomPrenomMedecin"
+                        [(ngModel)]="dispense.nomPrenomMedecin" required/>
+                    <div [hidden]="!(editForm.controls.nomPrenomMedecin?.dirty && editForm.controls.nomPrenomMedecin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomPrenomMedecin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="sigecApp.dispense.epreuveSpecialiteOption" for="field_epreuveSpecialiteOption">Epreuve Specialite Option</label>
+                    <select class="form-control" id="field_epreuveSpecialiteOption" multiple name="epreuveSpecialiteOption" [(ngModel)]="dispense.epreuveSpecialiteOptions">
+                        <option [ngValue]="getSelected(dispense.epreuveSpecialiteOptions, epreuveSpecialiteOptionOption)" *ngFor="let epreuveSpecialiteOptionOption of epreuvespecialiteoptions; trackBy: trackEpreuveSpecialiteOptionById">{{epreuveSpecialiteOptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.dispense.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="dispense.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.dispense.handicape" for="field_handicape">Handicape</label>
+                    <select class="form-control" id="field_handicape" name="handicape" [(ngModel)]="dispense.handicapeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="handicapeOption.id" *ngFor="let handicapeOption of handicapes; trackBy: trackHandicapeById">{{handicapeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

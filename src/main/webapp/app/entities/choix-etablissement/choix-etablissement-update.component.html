@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-choix-etablissement-heading" jhiTranslate="sigecApp.choixEtablissement.home.createOrEditLabel">Create or edit a Choix Etablissement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!choixEtablissement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="choixEtablissement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.choixEtablissement.priorite" for="field_priorite">Priorite</label>
+                    <input type="text" class="form-control" name="priorite" id="field_priorite"
+                        [(ngModel)]="choixEtablissement.priorite" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.choixEtablissement.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" [(ngModel)]="choixEtablissement.inscriptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackInscriptionById">{{inscriptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.choixEtablissement.etablissement" for="field_etablissement">Etablissement</label>
+                    <select class="form-control" id="field_etablissement" name="etablissement" [(ngModel)]="choixEtablissement.etablissementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackEtablissementById">{{etablissementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.choixEtablissement.specialiteOption" for="field_specialiteOption">Specialite Option</label>
+                    <select class="form-control" id="field_specialiteOption" name="specialiteOption" [(ngModel)]="choixEtablissement.specialiteOptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialiteOptionOption.id" *ngFor="let specialiteOptionOption of specialiteoptions; trackBy: trackSpecialiteOptionById">{{specialiteOptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

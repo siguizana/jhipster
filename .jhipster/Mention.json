@@ -1,0 +1,29 @@
+{
+    "name": "Mention",
+    "fields": [
+        {
+            "fieldName": "libelleMention",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "resultat",
+            "otherEntityName": "resultat",
+            "otherEntityRelationshipName": "mention"
+        }
+    ],
+    "changelogDate": "20190202012251",
+    "entityTableName": "mention",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

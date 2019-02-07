@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "sanction": {
+            "home": {
+                "title": "Sanctions",
+                "createLabel": "Créer un nouveau Sanction",
+                "createOrEditLabel": "Créer ou éditer un Sanction"
+            },
+            "created": "Un nouveau Sanction a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Sanction avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Sanction avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Sanction {{ id }} ?"
+            },
+            "detail": {
+                "title": "Sanction"
+            },
+            "libelleSanction": "Libelle Sanction",
+            "fraude": "Fraude"
+        }
+    }
+}

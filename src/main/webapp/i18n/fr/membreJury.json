@@ -1,0 +1,30 @@
+{
+    "sigecApp": {
+        "membreJury": {
+            "home": {
+                "title": "MembreJuries",
+                "createLabel": "Créer un nouveau Membre Jury",
+                "createOrEditLabel": "Créer ou éditer un Membre Jury"
+            },
+            "created": "Un nouveau Membre Jury a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Membre Jury avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Membre Jury avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Membre Jury {{ id }} ?"
+            },
+            "detail": {
+                "title": "Membre Jury"
+            },
+            "nomMembre": "Nom Membre",
+            "prenomMembre": "Prenom Membre",
+            "numeroCNIB": "Numero CNIB",
+            "matricule": "Matricule",
+            "surveille": "Surveille",
+            "noteMembreCritere": "Note Membre Critere",
+            "membreJuryJury": "Membre Jury Jury",
+            "fraude": "Fraude",
+            "compositionCopie": "Composition Copie",
+            "typeMembreJury": "Type Membre Jury"
+        }
+    }
+}

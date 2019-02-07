@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CritereExamen.
+    -->
+    <changeSet id="20190202012256-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="critere_examen"
+                                 constraintName="fk_critere_examen_region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
+        <addForeignKeyConstraint baseColumnNames="option_concours_rattache_id"
+                                 baseTableName="critere_examen"
+                                 constraintName="fk_critere_examen_option_concours_rattache_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="option_concours_rattache"/>
+
+        <addForeignKeyConstraint baseColumnNames="session_id"
+                                 baseTableName="critere_examen"
+                                 constraintName="fk_critere_examen_session_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="session"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_examen_id"
+                                 baseTableName="critere_examen"
+                                 constraintName="fk_critere_examen_type_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_examen"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_critere_id"
+                                 baseTableName="critere_examen"
+                                 constraintName="fk_critere_examen_type_critere_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_critere"/>
+
+    </changeSet>
+</databaseChangeLog>

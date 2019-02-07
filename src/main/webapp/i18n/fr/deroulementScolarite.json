@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "deroulementScolarite": {
+            "home": {
+                "title": "DeroulementScolarites",
+                "createLabel": "Créer un nouveau Deroulement Scolarite",
+                "createOrEditLabel": "Créer ou éditer un Deroulement Scolarite"
+            },
+            "created": "Un nouveau Deroulement Scolarite a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Deroulement Scolarite avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Deroulement Scolarite avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Deroulement Scolarite {{ id }} ?"
+            },
+            "detail": {
+                "title": "Deroulement Scolarite"
+            },
+            "anneScolarite": "Anne Scolarite",
+            "classe": "Classe",
+            "candidat": "Candidat"
+        }
+    }
+}

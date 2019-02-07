@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity EpreuveSpecialiteOption.
+    -->
+    <changeSet id="20190202012232-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="epreuve_specialite_option"
+                                 constraintName="fk_epreuve_specialite_option_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+        <addForeignKeyConstraint baseColumnNames="epreuve_id"
+                                 baseTableName="epreuve_specialite_option"
+                                 constraintName="fk_epreuve_specialite_option_epreuve_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="epreuve"/>
+
+        <addForeignKeyConstraint baseColumnNames="specialite_option_id"
+                                 baseTableName="epreuve_specialite_option"
+                                 constraintName="fk_epreuve_specialite_option_specialite_option_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="specialite_option"/>
+
+        <addForeignKeyConstraint baseColumnNames="groupe_epreuve_id"
+                                 baseTableName="epreuve_specialite_option"
+                                 constraintName="fk_epreuve_specialite_option_groupe_epreuve_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="groupe_epreuve"/>
+
+    </changeSet>
+</databaseChangeLog>

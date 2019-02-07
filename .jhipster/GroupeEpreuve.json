@@ -1,0 +1,29 @@
+{
+    "name": "GroupeEpreuve",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "epreuveSpecialiteOption",
+            "otherEntityName": "epreuveSpecialiteOption",
+            "otherEntityRelationshipName": "groupeEpreuve"
+        }
+    ],
+    "changelogDate": "20190202012231",
+    "entityTableName": "groupe_epreuve",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

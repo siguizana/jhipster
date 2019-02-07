@@ -1,0 +1,62 @@
+{
+    "name": "CompositionCopie",
+    "fields": [
+        {
+            "fieldName": "note",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dateComposition",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroAnonymat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "reclamation",
+            "otherEntityName": "reclamation",
+            "otherEntityRelationshipName": "compositionCopie"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "epreuveSpecialiteOption",
+            "otherEntityName": "epreuveSpecialiteOption",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "etapeExamen",
+            "otherEntityName": "etapeExamen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "membreJury",
+            "otherEntityName": "membreJury",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "compositionCopie"
+        }
+    ],
+    "changelogDate": "20190202012234",
+    "entityTableName": "composition_copie",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

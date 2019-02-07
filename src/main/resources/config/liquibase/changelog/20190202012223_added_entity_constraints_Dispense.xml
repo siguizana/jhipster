@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Dispense.
+    -->
+    <changeSet id="20190202012223-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dispense_id"
+                                 baseTableName="dispense_epreuve_specialite_option"
+                                 constraintName="fk_dispense_epreuve_specialite_option_dispense_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dispense"/>
+        <addForeignKeyConstraint baseColumnNames="epreuve_specialite_option_id"
+                                 baseTableName="dispense_epreuve_specialite_option"
+                                 constraintName="dispense_epreuve_specialite_op_epreuve_specialite_option_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="epreuve_specialite_option"/>
+        
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="dispense"
+                                 constraintName="fk_dispense_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+        <addForeignKeyConstraint baseColumnNames="handicape_id"
+                                 baseTableName="dispense"
+                                 constraintName="fk_dispense_handicape_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="handicape"/>
+
+    </changeSet>
+</databaseChangeLog>

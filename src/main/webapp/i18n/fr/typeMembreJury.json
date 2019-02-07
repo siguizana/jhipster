@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "typeMembreJury": {
+            "home": {
+                "title": "TypeMembreJuries",
+                "createLabel": "Créer un nouveau Type Membre Jury",
+                "createOrEditLabel": "Créer ou éditer un Type Membre Jury"
+            },
+            "created": "Un nouveau Type Membre Jury a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Membre Jury avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Membre Jury avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Membre Jury {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Membre Jury"
+            },
+            "libelle": "Libelle",
+            "membreJury": "Membre Jury",
+            "critereChoixMembreJury": "Critere Choix Membre Jury"
+        }
+    }
+}

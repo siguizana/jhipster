@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "handicape": {
+            "home": {
+                "title": "Handicapes",
+                "createLabel": "Créer un nouveau Handicape",
+                "createOrEditLabel": "Créer ou éditer un Handicape"
+            },
+            "created": "Un nouveau Handicape a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Handicape avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Handicape avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Handicape {{ id }} ?"
+            },
+            "detail": {
+                "title": "Handicape"
+            },
+            "libelle": "Libelle",
+            "dispense": "Dispense"
+        }
+    }
+}

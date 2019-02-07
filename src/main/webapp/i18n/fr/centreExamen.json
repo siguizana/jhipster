@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "centreExamen": {
+            "home": {
+                "title": "CentreExamen",
+                "createLabel": "Créer un nouveau Centre Examen",
+                "createOrEditLabel": "Créer ou éditer un Centre Examen"
+            },
+            "created": "Un nouveau Centre Examen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Centre Examen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Centre Examen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Centre Examen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Centre Examen"
+            },
+            "libelleCentreExamen": "Libelle Centre Examen",
+            "zoneExamen": "Zone Examen",
+            "region": "Region"
+        }
+    }
+}

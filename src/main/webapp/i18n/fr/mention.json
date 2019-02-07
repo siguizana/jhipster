@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "mention": {
+            "home": {
+                "title": "Mentions",
+                "createLabel": "Créer un nouveau Mention",
+                "createOrEditLabel": "Créer ou éditer un Mention"
+            },
+            "created": "Un nouveau Mention a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mention avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mention avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mention {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mention"
+            },
+            "libelleMention": "Libelle Mention",
+            "resultat": "Resultat"
+        }
+    }
+}

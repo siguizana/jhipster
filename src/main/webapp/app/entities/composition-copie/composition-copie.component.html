@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigecApp.compositionCopie.home.title">Composition Copies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-composition-copie" [routerLink]="['/composition-copie/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sigecApp.compositionCopie.home.createLabel">
+            Create new Composition Copie
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="compositionCopies">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="note"><span jhiTranslate="sigecApp.compositionCopie.note">Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateComposition"><span jhiTranslate="sigecApp.compositionCopie.dateComposition">Date Composition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroAnonymat"><span jhiTranslate="sigecApp.compositionCopie.numeroAnonymat">Numero Anonymat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inscriptionId"><span jhiTranslate="sigecApp.compositionCopie.inscription">Inscription</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epreuveSpecialiteOptionId"><span jhiTranslate="sigecApp.compositionCopie.epreuveSpecialiteOption">Epreuve Specialite Option</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etapeExamenId"><span jhiTranslate="sigecApp.compositionCopie.etapeExamen">Etape Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let compositionCopie of compositionCopies ;trackBy: trackId">
+                <td><a [routerLink]="['/composition-copie', compositionCopie.id, 'view' ]">{{compositionCopie.id}}</a></td>
+                <td>{{compositionCopie.note}}</td>
+                <td>{{compositionCopie.dateComposition | date:'mediumDate'}}</td>
+                <td>{{compositionCopie.numeroAnonymat}}</td>
+                <td>
+                    <div *ngIf="compositionCopie.inscriptionId">
+                        <a [routerLink]="['../inscription', compositionCopie.inscriptionId , 'view' ]" >{{compositionCopie.inscriptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="compositionCopie.epreuveSpecialiteOptionId">
+                        <a [routerLink]="['../epreuve-specialite-option', compositionCopie.epreuveSpecialiteOptionId , 'view' ]" >{{compositionCopie.epreuveSpecialiteOptionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="compositionCopie.etapeExamenId">
+                        <a [routerLink]="['../etape-examen', compositionCopie.etapeExamenId , 'view' ]" >{{compositionCopie.etapeExamenId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/composition-copie', compositionCopie.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/composition-copie', compositionCopie.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'composition-copie', { outlets: { popup: compositionCopie.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

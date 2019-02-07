@@ -1,0 +1,36 @@
+{
+    "name": "DeroulementScolarite",
+    "fields": [
+        {
+            "fieldName": "anneScolarite",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "classe",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "candidat",
+            "otherEntityName": "candidat",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012228",
+    "entityTableName": "deroulement_scolarite",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

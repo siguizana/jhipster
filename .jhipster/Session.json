@@ -1,0 +1,59 @@
+{
+    "name": "Session",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateOuverture",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFermeture",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "anneeSession",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "session"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "critereExamen",
+            "otherEntityName": "critereExamen",
+            "otherEntityRelationshipName": "session"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "enseigne",
+            "otherEntityName": "enseigne",
+            "otherEntityRelationshipName": "session"
+        }
+    ],
+    "changelogDate": "20190202012253",
+    "entityTableName": "session",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

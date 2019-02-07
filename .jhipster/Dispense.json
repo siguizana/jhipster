@@ -1,0 +1,50 @@
+{
+    "name": "Dispense",
+    "fields": [
+        {
+            "fieldName": "motitDispense",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomPrenomMedecin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "dispense",
+            "relationshipName": "epreuveSpecialiteOption",
+            "otherEntityName": "epreuveSpecialiteOption",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "handicape",
+            "otherEntityName": "handicape",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012223",
+    "entityTableName": "dispense",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

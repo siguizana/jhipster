@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-enseignant-heading" jhiTranslate="sigecApp.enseignant.home.createOrEditLabel">Create or edit a Enseignant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!enseignant.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="enseignant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.matricule" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                        [(ngModel)]="enseignant.matricule" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.nomEnseignant" for="field_nomEnseignant">Nom Enseignant</label>
+                    <input type="text" class="form-control" name="nomEnseignant" id="field_nomEnseignant"
+                        [(ngModel)]="enseignant.nomEnseignant" required/>
+                    <div [hidden]="!(editForm.controls.nomEnseignant?.dirty && editForm.controls.nomEnseignant?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nomEnseignant?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.prenomEnseignant" for="field_prenomEnseignant">Prenom Enseignant</label>
+                    <input type="text" class="form-control" name="prenomEnseignant" id="field_prenomEnseignant"
+                        [(ngModel)]="enseignant.prenomEnseignant" required/>
+                    <div [hidden]="!(editForm.controls.prenomEnseignant?.dirty && editForm.controls.prenomEnseignant?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenomEnseignant?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.contactEnseignant" for="field_contactEnseignant">Contact Enseignant</label>
+                    <input type="text" class="form-control" name="contactEnseignant" id="field_contactEnseignant"
+                        [(ngModel)]="enseignant.contactEnseignant" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.gradeEnseignant" for="field_gradeEnseignant">Grade Enseignant</label>
+                    <input type="text" class="form-control" name="gradeEnseignant" id="field_gradeEnseignant"
+                        [(ngModel)]="enseignant.gradeEnseignant" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.enseignant.echelonEnseignant" for="field_echelonEnseignant">Echelon Enseignant</label>
+                    <input type="text" class="form-control" name="echelonEnseignant" id="field_echelonEnseignant"
+                        [(ngModel)]="enseignant.echelonEnseignant" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

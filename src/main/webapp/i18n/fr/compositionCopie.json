@@ -1,0 +1,28 @@
+{
+    "sigecApp": {
+        "compositionCopie": {
+            "home": {
+                "title": "CompositionCopies",
+                "createLabel": "Créer un nouveau Composition Copie",
+                "createOrEditLabel": "Créer ou éditer un Composition Copie"
+            },
+            "created": "Un nouveau Composition Copie a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Composition Copie avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Composition Copie avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Composition Copie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Composition Copie"
+            },
+            "note": "Note",
+            "dateComposition": "Date Composition",
+            "numeroAnonymat": "Numero Anonymat",
+            "reclamation": "Reclamation",
+            "inscription": "Inscription",
+            "epreuveSpecialiteOption": "Epreuve Specialite Option",
+            "etapeExamen": "Etape Examen",
+            "membreJury": "Membre Jury"
+        }
+    }
+}

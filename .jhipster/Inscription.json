@@ -1,0 +1,164 @@
+{
+    "name": "Inscription",
+    "fields": [
+        {
+            "fieldName": "numeroPV",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dateInscription",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "aptitude",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "residence",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "echelon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDernierePromotion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "diplome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classeTenue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomPrenomPereOuTuteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomPrenomMereOuTutrice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresseParentOuTiteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "participeConcoursRattache",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "epreuveSpecialiteOption",
+            "otherEntityName": "epreuveSpecialiteOption",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "choixEtablissement",
+            "otherEntityName": "choixEtablissement",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "compositionCopie",
+            "otherEntityName": "compositionCopie",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "absence",
+            "otherEntityName": "absence",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "resultat",
+            "otherEntityName": "resultat",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dispense",
+            "otherEntityName": "dispense",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "fraude",
+            "otherEntityName": "fraude",
+            "otherEntityRelationshipName": "inscription"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "villageSecteur",
+            "otherEntityName": "villageSecteur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "session",
+            "otherEntityName": "session",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "optionConcoursRattache",
+            "otherEntityName": "optionConcoursRattache",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "candidat",
+            "otherEntityName": "candidat",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeExamen",
+            "otherEntityName": "typeExamen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "centreCompositioJury",
+            "otherEntityName": "centreCompositioJury",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "salleComposition",
+            "otherEntityName": "salleComposition",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "jury",
+            "otherEntityName": "jury",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012222",
+    "entityTableName": "inscription",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

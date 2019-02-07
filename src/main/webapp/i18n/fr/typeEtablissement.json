@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "typeEtablissement": {
+            "home": {
+                "title": "TypeEtablissements",
+                "createLabel": "Créer un nouveau Type Etablissement",
+                "createOrEditLabel": "Créer ou éditer un Type Etablissement"
+            },
+            "created": "Un nouveau Type Etablissement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Etablissement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Etablissement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Etablissement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Etablissement"
+            },
+            "libelleTypeEtablissement": "Libelle Type Etablissement",
+            "etablissement": "Etablissement"
+        }
+    }
+}

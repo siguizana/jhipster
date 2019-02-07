@@ -1,0 +1,60 @@
+{
+    "name": "CritereExamen",
+    "fields": [
+        {
+            "fieldName": "libelleCritereExamen",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "valeur",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "optionConcoursRattache",
+            "otherEntityName": "optionConcoursRattache",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "session",
+            "otherEntityName": "session",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeExamen",
+            "otherEntityName": "typeExamen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeCritere",
+            "otherEntityName": "typeCritere",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012256",
+    "entityTableName": "critere_examen",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

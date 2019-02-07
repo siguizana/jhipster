@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="optionConcoursRattache">
+            <h2><span jhiTranslate="sigecApp.optionConcoursRattache.detail.title">Option Concours Rattache</span> {{optionConcoursRattache.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.optionConcoursRattache.libelleOptionConcoursRattache">Libelle Option Concours Rattache</span></dt>
+                <dd>
+                    <span>{{optionConcoursRattache.libelleOptionConcoursRattache}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.optionConcoursRattache.concoursRattache">Concours Rattache</span></dt>
+                <dd>
+                    <div *ngIf="optionConcoursRattache.concoursRattacheId">
+                        <a [routerLink]="['/concours-rattache', optionConcoursRattache.concoursRattacheId, 'view']">{{optionConcoursRattache.concoursRattacheId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/option-concours-rattache', optionConcoursRattache.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

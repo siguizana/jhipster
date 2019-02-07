@@ -1,0 +1,52 @@
+{
+    "name": "Enseignant",
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomEnseignant",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenomEnseignant",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactEnseignant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gradeEnseignant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "echelonEnseignant",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "enseigne",
+            "otherEntityName": "enseigne",
+            "otherEntityRelationshipName": "enseignant"
+        }
+    ],
+    "changelogDate": "20190202012249",
+    "entityTableName": "enseignant",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

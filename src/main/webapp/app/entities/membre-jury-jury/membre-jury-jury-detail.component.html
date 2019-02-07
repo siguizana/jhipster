@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="membreJuryJury">
+            <h2><span jhiTranslate="sigecApp.membreJuryJury.detail.title">Membre Jury Jury</span> {{membreJuryJury.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.fonction">Fonction</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.fonction}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.status">Status</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.experience">Experience</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.experience}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.secteur">Secteur</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.secteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.quartier">Quartier</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.quartier}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.diplomeAcademique">Diplome Academique</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.diplomeAcademique}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.diplomeProfessionnel">Diplome Professionnel</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.diplomeProfessionnel}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.nomChefEtablissement">Nom Chef Etablissement</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.nomChefEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.prenomChefEtabissement">Prenom Chef Etabissement</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.prenomChefEtabissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.avisChefEtablissement">Avis Chef Etablissement</span></dt>
+                <dd>
+                    <span>{{membreJuryJury.avisChefEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.commission">Commission</span></dt>
+                <dd>
+                    <span *ngFor="let commission of membreJuryJury.commissions; let last = last">
+                        <a [routerLink]="['/commission', commission?.id, 'view' ]">{{commission.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.jury">Jury</span></dt>
+                <dd>
+                    <div *ngIf="membreJuryJury.juryId">
+                        <a [routerLink]="['/jury', membreJuryJury.juryId, 'view']">{{membreJuryJury.juryId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.membreJuryJury.membreJury">Membre Jury</span></dt>
+                <dd>
+                    <div *ngIf="membreJuryJury.membreJuryId">
+                        <a [routerLink]="['/membre-jury', membreJuryJury.membreJuryId, 'view']">{{membreJuryJury.membreJuryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/membre-jury-jury', membreJuryJury.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

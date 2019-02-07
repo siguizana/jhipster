@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-ceb-heading" jhiTranslate="sigecApp.ceb.home.createOrEditLabel">Create or edit a Ceb</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!ceb.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="ceb.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.ceb.codeCeb" for="field_codeCeb">Code Ceb</label>
+                    <input type="text" class="form-control" name="codeCeb" id="field_codeCeb"
+                        [(ngModel)]="ceb.codeCeb" required/>
+                    <div [hidden]="!(editForm.controls.codeCeb?.dirty && editForm.controls.codeCeb?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codeCeb?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.ceb.libelleCeb" for="field_libelleCeb">Libelle Ceb</label>
+                    <input type="text" class="form-control" name="libelleCeb" id="field_libelleCeb"
+                        [(ngModel)]="ceb.libelleCeb" required/>
+                    <div [hidden]="!(editForm.controls.libelleCeb?.dirty && editForm.controls.libelleCeb?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleCeb?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.ceb.typeCeb" for="field_typeCeb">Type Ceb</label>
+                    <select class="form-control" name="typeCeb" [(ngModel)]="ceb.typeCeb" id="field_typeCeb"  required>
+                        <option value="CEBREFORME">{{'sigecApp.TypeCeb.CEBREFORME' | translate}}</option>
+                        <option value="CEBNONREFORME">{{'sigecApp.TypeCeb.CEBNONREFORME' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.typeCeb?.dirty && editForm.controls.typeCeb?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.typeCeb?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.ceb.commune" for="field_commune">Commune</label>
+                    <select class="form-control" id="field_commune" name="commune" [(ngModel)]="ceb.communeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communeOption.id" *ngFor="let communeOption of communes; trackBy: trackCommuneById">{{communeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

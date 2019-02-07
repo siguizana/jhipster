@@ -1,0 +1,29 @@
+{
+    "name": "TypeCentreComposition",
+    "fields": [
+        {
+            "fieldName": "libelleTypeCentreComposition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "centreComposition",
+            "otherEntityName": "centreComposition",
+            "otherEntityRelationshipName": "typeCentreComposition"
+        }
+    ],
+    "changelogDate": "20190202012301",
+    "entityTableName": "type_centre_composition",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

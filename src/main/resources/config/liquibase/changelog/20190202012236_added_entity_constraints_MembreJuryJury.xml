@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity MembreJuryJury.
+    -->
+    <changeSet id="20190202012236-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="membre_jury_jury_id"
+                                 baseTableName="membre_jury_jury_commission"
+                                 constraintName="fk_membre_jury_jury_commission_membre_jury_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="membre_jury_jury"/>
+        <addForeignKeyConstraint baseColumnNames="commission_id"
+                                 baseTableName="membre_jury_jury_commission"
+                                 constraintName="fk_membre_jury_jury_commission_commission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="commission"/>
+        
+        <addForeignKeyConstraint baseColumnNames="jury_id"
+                                 baseTableName="membre_jury_jury"
+                                 constraintName="fk_membre_jury_jury_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jury"/>
+
+        <addForeignKeyConstraint baseColumnNames="membre_jury_id"
+                                 baseTableName="membre_jury_jury"
+                                 constraintName="fk_membre_jury_jury_membre_jury_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="membre_jury"/>
+
+    </changeSet>
+</databaseChangeLog>

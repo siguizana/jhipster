@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="absence">
+            <h2><span jhiTranslate="sigecApp.absence.detail.title">Absence</span> {{absence.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.absence.motifAbsence">Motif Absence</span></dt>
+                <dd>
+                    <span>{{absence.motifAbsence}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.absence.dateAbsence">Date Absence</span></dt>
+                <dd>
+                    <span>{{absence.dateAbsence}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.absence.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="absence.inscriptionId">
+                        <a [routerLink]="['/inscription', absence.inscriptionId, 'view']">{{absence.inscriptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.absence.epreuveSpecialiteOption">Epreuve Specialite Option</span></dt>
+                <dd>
+                    <div *ngIf="absence.epreuveSpecialiteOptionId">
+                        <a [routerLink]="['/epreuve-specialite-option', absence.epreuveSpecialiteOptionId, 'view']">{{absence.epreuveSpecialiteOptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.absence.etapeExamen">Etape Examen</span></dt>
+                <dd>
+                    <div *ngIf="absence.etapeExamenId">
+                        <a [routerLink]="['/etape-examen', absence.etapeExamenId, 'view']">{{absence.etapeExamenId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/absence', absence.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

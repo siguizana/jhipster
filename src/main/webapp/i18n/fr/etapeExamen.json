@@ -1,0 +1,25 @@
+{
+    "sigecApp": {
+        "etapeExamen": {
+            "home": {
+                "title": "EtapeExamen",
+                "createLabel": "Créer un nouveau Etape Examen",
+                "createOrEditLabel": "Créer ou éditer un Etape Examen"
+            },
+            "created": "Un nouveau Etape Examen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Etape Examen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Etape Examen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Etape Examen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Etape Examen"
+            },
+            "libelleEtapeExamen": "Libelle Etape Examen",
+            "compositionCopie": "Composition Copie",
+            "absence": "Absence",
+            "resultat": "Resultat",
+            "typeExamen": "Type Examen"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "ChoixEtablissement",
+    "fields": [
+        {
+            "fieldName": "priorite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "specialiteOption",
+            "otherEntityName": "specialiteOption",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012248",
+    "entityTableName": "choix_etablissement",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

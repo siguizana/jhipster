@@ -1,0 +1,23 @@
+{
+    "sigecApp": {
+        "noteMembreCritere": {
+            "home": {
+                "title": "NoteMembreCriteres",
+                "createLabel": "Créer un nouveau Note Membre Critere",
+                "createOrEditLabel": "Créer ou éditer un Note Membre Critere"
+            },
+            "created": "Un nouveau Note Membre Critere a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Note Membre Critere avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Note Membre Critere avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Note Membre Critere {{ id }} ?"
+            },
+            "detail": {
+                "title": "Note Membre Critere"
+            },
+            "valeurNote": "Valeur Note",
+            "membreJury": "Membre Jury",
+            "critereChoixMembreJury": "Critere Choix Membre Jury"
+        }
+    }
+}

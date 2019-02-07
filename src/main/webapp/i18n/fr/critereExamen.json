@@ -1,0 +1,27 @@
+{
+    "sigecApp": {
+        "critereExamen": {
+            "home": {
+                "title": "CritereExamen",
+                "createLabel": "Créer un nouveau Critere Examen",
+                "createOrEditLabel": "Créer ou éditer un Critere Examen"
+            },
+            "created": "Un nouveau Critere Examen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Critere Examen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Critere Examen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Critere Examen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Critere Examen"
+            },
+            "libelleCritereExamen": "Libelle Critere Examen",
+            "valeur": "Valeur",
+            "region": "Region",
+            "optionConcoursRattache": "Option Concours Rattache",
+            "session": "Session",
+            "typeExamen": "Type Examen",
+            "typeCritere": "Type Critere"
+        }
+    }
+}

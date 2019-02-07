@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "zoneExamen": {
+            "home": {
+                "title": "ZoneExamen",
+                "createLabel": "Créer un nouveau Zone Examen",
+                "createOrEditLabel": "Créer ou éditer un Zone Examen"
+            },
+            "created": "Un nouveau Zone Examen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Zone Examen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Zone Examen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Zone Examen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Zone Examen"
+            },
+            "codeZoneExamen": "Code Zone Examen",
+            "libelleZoneExamen": "Libelle Zone Examen",
+            "centreComposition": "Centre Composition",
+            "centreExamen": "Centre Examen"
+        }
+    }
+}

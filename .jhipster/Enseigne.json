@@ -1,0 +1,41 @@
+{
+    "name": "Enseigne",
+    "fields": [
+        {
+            "fieldName": "classeEnseigne",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "enseignant",
+            "otherEntityName": "enseignant",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "session",
+            "otherEntityName": "session",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012250",
+    "entityTableName": "enseigne",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

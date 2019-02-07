@@ -1,0 +1,162 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-inscription-heading" jhiTranslate="sigecApp.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!inscription.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="inscription.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.numeroPV" for="field_numeroPV">Numero PV</label>
+                    <input type="number" class="form-control" name="numeroPV" id="field_numeroPV"
+                        [(ngModel)]="inscription.numeroPV" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+                    <div class="input-group">
+                        <input id="field_dateInscription" type="text" class="form-control" name="dateInscription" ngbDatepicker  #dateInscriptionDp="ngbDatepicker" [(ngModel)]="inscription.dateInscription"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateInscriptionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.aptitude" for="field_aptitude">Aptitude</label>
+                    <input type="checkbox" class="form-control" name="aptitude" id="field_aptitude"
+                        [(ngModel)]="inscription.aptitude" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.residence" for="field_residence">Residence</label>
+                    <input type="text" class="form-control" name="residence" id="field_residence"
+                        [(ngModel)]="inscription.residence" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.echelon" for="field_echelon">Echelon</label>
+                    <input type="text" class="form-control" name="echelon" id="field_echelon"
+                        [(ngModel)]="inscription.echelon" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.grade" for="field_grade">Grade</label>
+                    <input type="text" class="form-control" name="grade" id="field_grade"
+                        [(ngModel)]="inscription.grade" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.dateDernierePromotion" for="field_dateDernierePromotion">Date Derniere Promotion</label>
+                    <div class="input-group">
+                        <input id="field_dateDernierePromotion" type="text" class="form-control" name="dateDernierePromotion" ngbDatepicker  #dateDernierePromotionDp="ngbDatepicker" [(ngModel)]="inscription.dateDernierePromotion"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDernierePromotionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.diplome" for="field_diplome">Diplome</label>
+                    <input type="text" class="form-control" name="diplome" id="field_diplome"
+                        [(ngModel)]="inscription.diplome" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.classeTenue" for="field_classeTenue">Classe Tenue</label>
+                    <input type="text" class="form-control" name="classeTenue" id="field_classeTenue"
+                        [(ngModel)]="inscription.classeTenue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.nomPrenomPereOuTuteur" for="field_nomPrenomPereOuTuteur">Nom Prenom Pere Ou Tuteur</label>
+                    <input type="text" class="form-control" name="nomPrenomPereOuTuteur" id="field_nomPrenomPereOuTuteur"
+                        [(ngModel)]="inscription.nomPrenomPereOuTuteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.nomPrenomMereOuTutrice" for="field_nomPrenomMereOuTutrice">Nom Prenom Mere Ou Tutrice</label>
+                    <input type="text" class="form-control" name="nomPrenomMereOuTutrice" id="field_nomPrenomMereOuTutrice"
+                        [(ngModel)]="inscription.nomPrenomMereOuTutrice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.adresseParentOuTiteur" for="field_adresseParentOuTiteur">Adresse Parent Ou Titeur</label>
+                    <input type="text" class="form-control" name="adresseParentOuTiteur" id="field_adresseParentOuTiteur"
+                        [(ngModel)]="inscription.adresseParentOuTiteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.participeConcoursRattache" for="field_participeConcoursRattache">Participe Concours Rattache</label>
+                    <input type="checkbox" class="form-control" name="participeConcoursRattache" id="field_participeConcoursRattache"
+                        [(ngModel)]="inscription.participeConcoursRattache" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.villageSecteur" for="field_villageSecteur">Village Secteur</label>
+                    <select class="form-control" id="field_villageSecteur" name="villageSecteur" [(ngModel)]="inscription.villageSecteurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="villageSecteurOption.id" *ngFor="let villageSecteurOption of villagesecteurs; trackBy: trackVillageSecteurById">{{villageSecteurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.etablissement" for="field_etablissement">Etablissement</label>
+                    <select class="form-control" id="field_etablissement" name="etablissement" [(ngModel)]="inscription.etablissementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackEtablissementById">{{etablissementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.session" for="field_session">Session</label>
+                    <select class="form-control" id="field_session" name="session" [(ngModel)]="inscription.sessionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sessionOption.id" *ngFor="let sessionOption of sessions; trackBy: trackSessionById">{{sessionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.optionConcoursRattache" for="field_optionConcoursRattache">Option Concours Rattache</label>
+                    <select class="form-control" id="field_optionConcoursRattache" name="optionConcoursRattache" [(ngModel)]="inscription.optionConcoursRattacheId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="optionConcoursRattacheOption.id" *ngFor="let optionConcoursRattacheOption of optionconcoursrattaches; trackBy: trackOptionConcoursRattacheById">{{optionConcoursRattacheOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.candidat" for="field_candidat">Candidat</label>
+                    <select class="form-control" id="field_candidat" name="candidat" [(ngModel)]="inscription.candidatId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="candidatOption.id" *ngFor="let candidatOption of candidats; trackBy: trackCandidatById">{{candidatOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.typeExamen" for="field_typeExamen">Type Examen</label>
+                    <select class="form-control" id="field_typeExamen" name="typeExamen" [(ngModel)]="inscription.typeExamenId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeExamenOption.id" *ngFor="let typeExamenOption of typeexamen; trackBy: trackTypeExamenById">{{typeExamenOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.centreCompositioJury" for="field_centreCompositioJury">Centre Compositio Jury</label>
+                    <select class="form-control" id="field_centreCompositioJury" name="centreCompositioJury" [(ngModel)]="inscription.centreCompositioJuryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="centreCompositioJuryOption.id" *ngFor="let centreCompositioJuryOption of centrecompositiojuries; trackBy: trackCentreCompositioJuryById">{{centreCompositioJuryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.salleComposition" for="field_salleComposition">Salle Composition</label>
+                    <select class="form-control" id="field_salleComposition" name="salleComposition" [(ngModel)]="inscription.salleCompositionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="salleCompositionOption.id" *ngFor="let salleCompositionOption of sallecompositions; trackBy: trackSalleCompositionById">{{salleCompositionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.inscription.jury" for="field_jury">Jury</label>
+                    <select class="form-control" id="field_jury" name="jury" [(ngModel)]="inscription.juryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="juryOption.id" *ngFor="let juryOption of juries; trackBy: trackJuryById">{{juryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salleComposition">
+            <h2><span jhiTranslate="sigecApp.salleComposition.detail.title">Salle Composition</span> {{salleComposition.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.salleComposition.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{salleComposition.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.salleComposition.capaciteSalle">Capacite Salle</span></dt>
+                <dd>
+                    <span>{{salleComposition.capaciteSalle}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.salleComposition.centreCompositioJury">Centre Compositio Jury</span></dt>
+                <dd>
+                    <div *ngIf="salleComposition.centreCompositioJuryId">
+                        <a [routerLink]="['/centre-compositio-jury', salleComposition.centreCompositioJuryId, 'view']">{{salleComposition.centreCompositioJuryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/salle-composition', salleComposition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

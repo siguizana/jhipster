@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-surveille-heading" jhiTranslate="sigecApp.surveille.home.createOrEditLabel">Create or edit a Surveille</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!surveille.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="surveille.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.surveille.dateDebutSurveillance" for="field_dateDebutSurveillance">Date Debut Surveillance</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebutSurveillance" type="datetime-local" class="form-control" name="dateDebutSurveillance" [(ngModel)]="dateDebutSurveillance" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.surveille.dateFinSurveillance" for="field_dateFinSurveillance">Date Fin Surveillance</label>
+                    <div class="d-flex">
+                        <input id="field_dateFinSurveillance" type="datetime-local" class="form-control" name="dateFinSurveillance" [(ngModel)]="dateFinSurveillance" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.surveille.membreJury" for="field_membreJury">Membre Jury</label>
+                    <select class="form-control" id="field_membreJury" name="membreJury" [(ngModel)]="surveille.membreJuryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="membreJuryOption.id" *ngFor="let membreJuryOption of membrejuries; trackBy: trackMembreJuryById">{{membreJuryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.surveille.salleComposition" for="field_salleComposition">Salle Composition</label>
+                    <select class="form-control" id="field_salleComposition" name="salleComposition" [(ngModel)]="surveille.salleCompositionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="salleCompositionOption.id" *ngFor="let salleCompositionOption of sallecompositions; trackBy: trackSalleCompositionById">{{salleCompositionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SpecialiteOption.
+    -->
+    <changeSet id="20190202012226-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_examen_id"
+                                 baseTableName="specialite_option"
+                                 constraintName="fk_specialite_option_type_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_examen"/>
+
+        <addForeignKeyConstraint baseColumnNames="filiere_id"
+                                 baseTableName="specialite_option"
+                                 constraintName="fk_specialite_option_filiere_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="filiere"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "centreCompositioJury": {
+            "home": {
+                "title": "CentreCompositioJuries",
+                "createLabel": "Créer un nouveau Centre Compositio Jury",
+                "createOrEditLabel": "Créer ou éditer un Centre Compositio Jury"
+            },
+            "created": "Un nouveau Centre Compositio Jury a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Centre Compositio Jury avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Centre Compositio Jury avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Centre Compositio Jury {{ id }} ?"
+            },
+            "detail": {
+                "title": "Centre Compositio Jury"
+            },
+            "salleComposition": "Salle Composition",
+            "inscription": "Inscription",
+            "centreComposition": "Centre Composition",
+            "jury": "Jury"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "name": "OptionConcoursRattache",
+    "fields": [
+        {
+            "fieldName": "libelleOptionConcoursRattache",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "resultat",
+            "otherEntityName": "resultat",
+            "otherEntityRelationshipName": "optionConcoursRattache"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "critereExamen",
+            "otherEntityName": "critereExamen",
+            "otherEntityRelationshipName": "optionConcoursRattache"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "optionConcoursRattache"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "concoursRattache",
+            "otherEntityName": "concoursRattache",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012255",
+    "entityTableName": "option_concours_rattache",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

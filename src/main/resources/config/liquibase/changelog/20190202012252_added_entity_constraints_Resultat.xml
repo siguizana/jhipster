@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Resultat.
+    -->
+    <changeSet id="20190202012252-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="etape_examen_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_etape_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etape_examen"/>
+
+        <addForeignKeyConstraint baseColumnNames="mention_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_mention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mention"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_decision_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_type_decision_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_decision"/>
+
+        <addForeignKeyConstraint baseColumnNames="option_concours_rattache_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_option_concours_rattache_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="option_concours_rattache"/>
+
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+    </changeSet>
+</databaseChangeLog>

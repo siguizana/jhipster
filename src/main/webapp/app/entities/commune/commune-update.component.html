@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-commune-heading" jhiTranslate="sigecApp.commune.home.createOrEditLabel">Create or edit a Commune</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!commune.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="commune.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.commune.codeCommune" for="field_codeCommune">Code Commune</label>
+                    <input type="text" class="form-control" name="codeCommune" id="field_codeCommune"
+                        [(ngModel)]="commune.codeCommune" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.commune.libelleCommune" for="field_libelleCommune">Libelle Commune</label>
+                    <input type="text" class="form-control" name="libelleCommune" id="field_libelleCommune"
+                        [(ngModel)]="commune.libelleCommune" required/>
+                    <div [hidden]="!(editForm.controls.libelleCommune?.dirty && editForm.controls.libelleCommune?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.libelleCommune?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.commune.typeCommune" for="field_typeCommune">Type Commune</label>
+                    <select class="form-control" name="typeCommune" [(ngModel)]="commune.typeCommune" id="field_typeCommune"  required>
+                        <option value="RURALE">{{'sigecApp.TypeCommune.RURALE' | translate}}</option>
+                        <option value="URBAINE">{{'sigecApp.TypeCommune.URBAINE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.typeCommune?.dirty && editForm.controls.typeCommune?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.typeCommune?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigecApp.commune.province" for="field_province">Province</label>
+                    <select class="form-control" id="field_province" name="province" [(ngModel)]="commune.provinceId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="provinceOption.id" *ngFor="let provinceOption of provinces; trackBy: trackProvinceById">{{provinceOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

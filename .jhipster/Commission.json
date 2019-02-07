@@ -1,0 +1,30 @@
+{
+    "name": "Commission",
+    "fields": [
+        {
+            "fieldName": "libelleCommission",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "membreJuryJury",
+            "otherEntityName": "membreJuryJury",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "commission"
+        }
+    ],
+    "changelogDate": "20190202012307",
+    "entityTableName": "commission",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

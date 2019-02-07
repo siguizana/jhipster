@@ -1,0 +1,22 @@
+{
+    "sigecApp": {
+        "typeCentreComposition": {
+            "home": {
+                "title": "TypeCentreCompositions",
+                "createLabel": "Créer un nouveau Type Centre Composition",
+                "createOrEditLabel": "Créer ou éditer un Type Centre Composition"
+            },
+            "created": "Un nouveau Type Centre Composition a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Centre Composition avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Centre Composition avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Centre Composition {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Centre Composition"
+            },
+            "libelleTypeCentreComposition": "Libelle Type Centre Composition",
+            "centreComposition": "Centre Composition"
+        }
+    }
+}

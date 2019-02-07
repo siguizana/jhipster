@@ -1,0 +1,9 @@
+{
+    "sigecApp": {
+        "Sexe": {
+            "null": "",
+            "MASCULIN": "MASCULIN",
+            "FEMININ": "FEMININ"
+        }
+    }
+}

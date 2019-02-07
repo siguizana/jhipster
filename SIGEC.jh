@@ -1,0 +1,340 @@
+enum Sexe {
+    MASCULIN, FEMININ
+}
+enum TypeCeb {
+    CEBREFORME, CEBNONREFORME
+}
+enum TypeCommune {
+    RURALE, URBAINE
+}
+entity Candidat{
+    codeCandidat String,
+    nomCandidat String required,
+    prenomCandidat String required,
+    dateNaissance LocalDate required,
+    lieuNaissance String required,
+    paysNaissance String required,
+    sexe Sexe required,
+    telephoneCandidat String,
+    nationaliteCandidat String required,
+    matriculeCandidat String,
+    dateEnregistrementCandidat LocalDate,
+    dateDebutCariereCandidat LocalDate
+}
+entity TypeExamen{
+    libelle String required
+}
+entity Inscription{
+    numeroPV Long,
+    dateInscription LocalDate,
+    aptitude Boolean,
+    residence String,
+    echelon String,
+    grade String,
+    dateDernierePromotion LocalDate,
+    diplome String,
+    classeTenue String,
+    nomPrenomPereOuTuteur String,
+    nomPrenomMereOuTutrice String,
+    adresseParentOuTiteur String,
+    participeConcoursRattache Boolean
+}
+entity Dispense{
+    motitDispense String required,
+    nomPrenomMedecin String required
+}
+entity Handicape{
+    libelle String required
+}
+entity TypeCritere{
+    libelle String required
+}
+entity SpecialiteOption{
+    libelle String required
+}
+entity Filiere {
+    libelle String required
+}
+entity DeroulementScolarite {
+    anneScolarite String required,
+    classe String required
+}
+entity TypeEpreuve {
+    libelle String required
+}
+entity Epreuve {
+    libelle String required
+}
+entity GroupeEpreuve{
+    libelle String required
+}
+entity EpreuveSpecialiteOption {
+    epreuveRachat Boolean,
+    epreuveAdmissibilite Boolean,
+    epreuveFacultative Boolean,
+    noteEliminatoire Float,
+    coefficient Integer required
+}
+entity Reclamation {
+    motifReclamation String required,
+    dateReclamation LocalDate,
+    noteReclamation Float,
+    statutReclamation Boolean
+}
+entity CompositionCopie {
+    note Float,
+    dateComposition LocalDate,
+    numeroAnonymat String required
+}
+entity MembreJury {
+    nomMembre String required,
+    prenomMembre String required,
+    numeroCNIB String required,
+    matricule String
+}
+entity MembreJuryJury {
+    fonction String,
+    status String
+    experience String,
+    secteur String,
+    quartier String,
+    diplomeAcademique String,
+    diplomeProfessionnel String,
+    nomChefEtablissement String,
+    prenomChefEtabissement String,
+    avisChefEtablissement String
+}
+entity TypeMembreJury {
+    libelle String required
+}
+entity CritereChoixMembreJury {
+    libelle String required,
+    noteParDefaut Float required
+}
+entity NoteMembreCritere {
+    valeurNote Float
+}
+entity Surveille {
+    dateDebutSurveillance Instant,
+    dateFinSurveillance Instant
+}
+entity Absence {
+    motifAbsence String,
+    dateAbsence LocalDate
+}
+entity Fraude {
+    libelleFraude String required
+}
+entity TypeFraude {
+    libelleTypeFraude String required
+}
+entity PieceAConviction {
+    libellePieceAconviction String required
+}
+entity Sanction {
+    libelleSanction String required
+}
+entity Etablissement {
+    codeEtablissement String,
+    libelleEtablissement String required,
+    nomResponsableEtablissement String required,
+    prenomResponsableEtablissement String required,
+    contactactEtablissement String required
+}
+entity TypeEtablissement {
+    libelleTypeEtablissement String required
+}
+entity ChoixEtablissement {
+    priorite String
+}
+entity Enseignant {
+    matricule String,
+    nomEnseignant String required,
+    prenomEnseignant String required,
+    contactEnseignant String,
+    gradeEnseignant String,
+    echelonEnseignant String
+}
+entity Enseigne {
+    classeEnseigne String required
+}
+entity Mention {
+    libelleMention String required
+}
+entity Resultat {
+    notePondere Float required
+}
+entity Session {
+    libelle String required,
+    dateOuverture LocalDate required,
+    dateFermeture LocalDate,
+    anneeSession Integer required
+}
+entity ConcoursRattache {
+    libelleConcoursRattache String required
+}
+entity OptionConcoursRattache{
+    libelleOptionConcoursRattache String required
+}
+entity CritereExamen{
+    libelleCritereExamen String required,
+    valeur Float required
+}
+entity RetraitDiplome{
+    dateRetrait LocalDate required
+}
+entity TypeDiplome{
+    libelleTypeDiplome String required
+}
+entity TypeDecision{
+    libelleTypeDecision String required
+}
+entity CentreExamen{
+    libelleCentreExamen String required
+}
+entity TypeCentreComposition{
+   libelleTypeCentreComposition String required
+}
+entity CentreComposition{
+    libelleCentreComposition String required
+}
+entity ZoneExamen{
+    codeZoneExamen String,
+    libelleZoneExamen String required
+}
+entity Jury{
+    libelleJury String required
+}
+entity SalleComposition{
+    libelle String required,
+    capaciteSalle String 
+}
+entity VillageSecteur{
+    codeVillageSecteur String,
+    libelleVillageSecteur String required
+}
+entity Commission{
+    libelleCommission String required
+}
+entity Ceb{
+    codeCeb String required,
+    libelleCeb String required,
+    typeCeb TypeCeb required
+}
+entity Commune{
+    codeCommune String,
+    libelleCommune String required,
+    typeCommune TypeCommune required
+}
+entity Province {
+    codeProvince String,
+    libelleProvince String required
+}
+entity Region{
+    codeRegion String,
+    libelleRegion String required
+}
+entity CentreCompositioJury{
+
+}
+ entity EtapeExamen{
+     libelleEtapeExamen String required
+ }
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+    Region to Province , 
+    Province to Commune ,
+    Commune to VillageSecteur ,
+    Region to CritereExamen , 
+    Commune to Ceb , 
+    Ceb to Etablissement , 
+    TypeEtablissement to Etablissement,
+    VillageSecteur to Etablissement,
+    Ceb to CentreComposition , 
+    ZoneExamen to CentreComposition , 
+    CentreExamen to ZoneExamen,
+    TypeCentreComposition to CentreComposition,
+    CentreComposition to CentreCompositioJury,
+    Jury to CentreCompositioJury,
+    CentreCompositioJury to SalleComposition,
+    MembreJury to Surveille,
+    SalleComposition to Surveille,
+    TypeMembreJury to MembreJury,
+    MembreJury to NoteMembreCritere,
+    CritereChoixMembreJury to NoteMembreCritere,
+    Jury to MembreJuryJury,
+    MembreJury to MembreJuryJury,
+    Etablissement to Enseigne,
+    Enseignant to Enseigne,
+    CentreComposition to Etablissement,
+    VillageSecteur to Inscription,
+    Etablissement to Inscription,
+    Inscription to EpreuveSpecialiteOption,
+    Inscription to ChoixEtablissement,
+    Etablissement to ChoixEtablissement,
+    SpecialiteOption to ChoixEtablissement,
+    Inscription to CompositionCopie,
+    EpreuveSpecialiteOption to CompositionCopie,
+    CompositionCopie to Reclamation,
+    Inscription to Absence,
+    EpreuveSpecialiteOption to Absence,
+    EtapeExamen to CompositionCopie ,
+    EtapeExamen to Absence,
+    EtapeExamen to Resultat,
+    //Mention to Resultat,
+    TypeDecision to Resultat,
+    Resultat to RetraitDiplome,
+    TypeDiplome to RetraitDiplome,
+   // OptionConcoursRattache to Resultat,
+    OptionConcoursRattache to CritereExamen,
+    Inscription to Resultat,
+    TypeExamen to EtapeExamen ,
+    TypeExamen to ConcoursRattache,
+    Session to Inscription,
+    Session to CritereExamen,
+    TypeExamen to CritereExamen,
+    TypeCritere to CritereExamen,
+    TypeExamen to SpecialiteOption,
+    Filiere to SpecialiteOption,
+    Epreuve to EpreuveSpecialiteOption,
+    SpecialiteOption to EpreuveSpecialiteOption,
+    Inscription to Dispense,
+    Handicape to Dispense,
+    OptionConcoursRattache to Inscription,
+    Candidat to Inscription,
+    TypeExamen to Inscription,
+    Candidat to DeroulementScolarite,
+    TypeEpreuve to Epreuve,
+    GroupeEpreuve to EpreuveSpecialiteOption,
+    ConcoursRattache to OptionConcoursRattache,
+    Fraude to Sanction,
+    Fraude to PieceAConviction,
+    TypeFraude to Fraude,
+    Inscription to Fraude,
+    Region to CentreExamen,
+    Session to Enseigne,
+    CentreCompositioJury to Inscription,
+    SalleComposition to Inscription,
+    Jury to Inscription,
+    CentreCompositioJury to SalleComposition 
+}
+/**
+ * Many to many relationship.
+ */
+relationship ManyToMany {
+    MembreJury to Fraude,
+    MembreJury to CompositionCopie,
+    TypeMembreJury to CritereChoixMembreJury,
+    Dispense to EpreuveSpecialiteOption,
+    MembreJuryJury to Commission   
+}
+// Set pagination options
+paginate * with infinite-scroll 
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+ // Set service options 
+service all with serviceClass 

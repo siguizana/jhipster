@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CentreComposition.
+    -->
+    <changeSet id="20190202012302-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ceb_id"
+                                 baseTableName="centre_composition"
+                                 constraintName="fk_centre_composition_ceb_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ceb"/>
+
+        <addForeignKeyConstraint baseColumnNames="zone_examen_id"
+                                 baseTableName="centre_composition"
+                                 constraintName="fk_centre_composition_zone_examen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zone_examen"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_centre_composition_id"
+                                 baseTableName="centre_composition"
+                                 constraintName="fk_centre_composition_type_centre_composition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_centre_composition"/>
+
+    </changeSet>
+</databaseChangeLog>

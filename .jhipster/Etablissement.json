@@ -1,0 +1,90 @@
+{
+    "name": "Etablissement",
+    "fields": [
+        {
+            "fieldName": "codeEtablissement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleEtablissement",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomResponsableEtablissement",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenomResponsableEtablissement",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactactEtablissement",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "enseigne",
+            "otherEntityName": "enseigne",
+            "otherEntityRelationshipName": "etablissement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inscription",
+            "otherEntityName": "inscription",
+            "otherEntityRelationshipName": "etablissement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "choixEtablissement",
+            "otherEntityName": "choixEtablissement",
+            "otherEntityRelationshipName": "etablissement"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ceb",
+            "otherEntityName": "ceb",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typeEtablissement",
+            "otherEntityName": "typeEtablissement",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "villageSecteur",
+            "otherEntityName": "villageSecteur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "centreComposition",
+            "otherEntityName": "centreComposition",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190202012246",
+    "entityTableName": "etablissement",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

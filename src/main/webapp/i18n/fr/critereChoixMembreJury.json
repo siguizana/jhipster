@@ -1,0 +1,24 @@
+{
+    "sigecApp": {
+        "critereChoixMembreJury": {
+            "home": {
+                "title": "CritereChoixMembreJuries",
+                "createLabel": "Créer un nouveau Critere Choix Membre Jury",
+                "createOrEditLabel": "Créer ou éditer un Critere Choix Membre Jury"
+            },
+            "created": "Un nouveau Critere Choix Membre Jury a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Critere Choix Membre Jury avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Critere Choix Membre Jury avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Critere Choix Membre Jury {{ id }} ?"
+            },
+            "detail": {
+                "title": "Critere Choix Membre Jury"
+            },
+            "libelle": "Libelle",
+            "noteParDefaut": "Note Par Defaut",
+            "noteMembreCritere": "Note Membre Critere",
+            "typeMembreJury": "Type Membre Jury"
+        }
+    }
+}

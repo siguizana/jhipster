@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etablissement">
+            <h2><span jhiTranslate="sigecApp.etablissement.detail.title">Etablissement</span> {{etablissement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigecApp.etablissement.codeEtablissement">Code Etablissement</span></dt>
+                <dd>
+                    <span>{{etablissement.codeEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.libelleEtablissement">Libelle Etablissement</span></dt>
+                <dd>
+                    <span>{{etablissement.libelleEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.nomResponsableEtablissement">Nom Responsable Etablissement</span></dt>
+                <dd>
+                    <span>{{etablissement.nomResponsableEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.prenomResponsableEtablissement">Prenom Responsable Etablissement</span></dt>
+                <dd>
+                    <span>{{etablissement.prenomResponsableEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.contactactEtablissement">Contactact Etablissement</span></dt>
+                <dd>
+                    <span>{{etablissement.contactactEtablissement}}</span>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.ceb">Ceb</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.cebId">
+                        <a [routerLink]="['/ceb', etablissement.cebId, 'view']">{{etablissement.cebId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.typeEtablissement">Type Etablissement</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.typeEtablissementId">
+                        <a [routerLink]="['/type-etablissement', etablissement.typeEtablissementId, 'view']">{{etablissement.typeEtablissementId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.villageSecteur">Village Secteur</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.villageSecteurId">
+                        <a [routerLink]="['/village-secteur', etablissement.villageSecteurId, 'view']">{{etablissement.villageSecteurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigecApp.etablissement.centreComposition">Centre Composition</span></dt>
+                <dd>
+                    <div *ngIf="etablissement.centreCompositionId">
+                        <a [routerLink]="['/centre-composition', etablissement.centreCompositionId, 'view']">{{etablissement.centreCompositionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etablissement', etablissement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
